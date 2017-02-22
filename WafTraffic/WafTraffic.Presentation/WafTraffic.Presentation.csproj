@@ -1,0 +1,1176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{29653FCD-01EB-469D-ADE4-B034A9241081}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WafTraffic.Presentation</RootNamespace>
+    <AssemblyName>禹城交警管理平台</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Output\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Images\icon_ycTrafficSystem.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.DSOFramer">
+      <HintPath>..\..\Libraries\AxInterop.DSOFramer.dll</HintPath>
+    </Reference>
+    <Reference Include="CustomControlLibrary">
+      <HintPath>..\..\Libraries\CustomControlLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="De.TorstenMandelkow.MetroChart">
+      <HintPath>..\..\Libraries\De.TorstenMandelkow.MetroChart.dll</HintPath>
+    </Reference>
+    <Reference Include="FirstFloor.ModernUI">
+      <HintPath>..\..\Libraries\FirstFloor.ModernUI.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core">
+      <HintPath>..\..\Libraries\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsPresentation">
+      <HintPath>..\..\Libraries\GMap.NET.WindowsPresentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.DSOFramer">
+      <HintPath>..\..\Libraries\Interop.DSOFramer.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Windows.Shell, Version=3.5.41019.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\Microsoft.Windows.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Libraries\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjNet">
+      <HintPath>..\..\Libraries\ProjNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration">
+      <Private>True</Private>
+      <HintPath>..\..\Libraries\WindowsFormsIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="WpfApplicationFramework">
+      <HintPath>..\..\Libraries\WpfApplicationFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="WpfLoadingMask, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\WpfLoadingMask.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.resources">
+      <HintPath>..\..\Libraries\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero">
+      <HintPath>..\..\Libraries\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=2.1.14080.0, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.1.14080.0, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CustomMarkers\Circle.xaml.cs">
+      <DependentUpon>Circle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomMarkers\CircleVisual.cs" />
+    <Compile Include="CustomMarkers\Cross.xaml.cs">
+      <DependentUpon>Cross.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomMarkers\CustomMarkerDemo.xaml.cs">
+      <DependentUpon>CustomMarkerDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomMarkers\CustomMarkerRed.xaml.cs">
+      <DependentUpon>CustomMarkerRed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MapControls\TrolleyTooltip.xaml.cs">
+      <DependentUpon>TrolleyTooltip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MapSources\App.cs" />
+    <Compile Include="MapSources\DemoStuff.cs" />
+    <Compile Include="MapSources\Map.cs" />
+    <Compile Include="Services\PresentationService.cs" />
+    <Compile Include="Views\AlarmNotify.xaml.cs">
+      <DependentUpon>AlarmNotify.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cgs\CgsKeyCompanyLogbookQueryView.xaml.cs">
+      <DependentUpon>CgsKeyCompanyLogbookQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cgs\CgsKeyCompanyLogbookUpdateView.xaml.cs">
+      <DependentUpon>CgsKeyCompanyLogbookUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cgs\CgsKeyDriverLogbookQueryView.xaml.cs">
+      <DependentUpon>CgsKeyDriverLogbookQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cgs\CgsKeyDriverLogbookUpdateView.xaml.cs">
+      <DependentUpon>CgsKeyDriverLogbookUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cgs\CgsKeyVehicleLogbookQueryView.xaml.cs">
+      <DependentUpon>CgsKeyVehicleLogbookQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cgs\CgsKeyVehicleLogbookUpdateView.xaml.cs">
+      <DependentUpon>CgsKeyVehicleLogbookUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cgs\CgsVehicleAdminQueryView.xaml.cs">
+      <DependentUpon>CgsVehicleAdminQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cgs\CgsVehicleAdminUpdateView.xaml.cs">
+      <DependentUpon>CgsVehicleAdminUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cgs\CgsYellowMarkCarQueryView.xaml.cs">
+      <DependentUpon>CgsYellowMarkCarQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cgs\CgsYellowMarkCarUpdateView.xaml.cs">
+      <DependentUpon>CgsYellowMarkCarUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrequentUsedLinkConfigView.xaml.cs">
+      <DependentUpon>FrequentUsedLinkConfigView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fzk\FzkChangeMeasureQueryView.xaml.cs">
+      <DependentUpon>FzkChangeMeasureQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fzk\FzkChangeMeasureUpdateView.xaml.cs">
+      <DependentUpon>FzkChangeMeasureUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fzk\FzkConsultationQueryView.xaml.cs">
+      <DependentUpon>FzkConsultationQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fzk\FzkConsultationUpdateView.xaml.cs">
+      <DependentUpon>FzkConsultationUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fzk\FzkLawQualityLogbookQueryView.xaml.cs">
+      <DependentUpon>FzkLawQualityLogbookQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fzk\FzkLawQualityLogbookUpdateView.xaml.cs">
+      <DependentUpon>FzkLawQualityLogbookUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fzk\FzkPetitionQueryView.xaml.cs">
+      <DependentUpon>FzkPetitionQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fzk\FzkPetitionUpdateView.xaml.cs">
+      <DependentUpon>FzkPetitionUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fzk\FzkReleaseCarPrintView.xaml.cs">
+      <DependentUpon>FzkReleaseCarPrintView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fzk\FzkReleaseCarQueryView.xaml.cs">
+      <DependentUpon>FzkReleaseCarQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fzk\FzkReleaseCarUpdateView.xaml.cs">
+      <DependentUpon>FzkReleaseCarUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Gggs\GggsPublishNoticeDetailView.xaml.cs">
+      <DependentUpon>GggsPublishNoticeDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Gggs\GggsPublishNoticeListView.xaml.cs">
+      <DependentUpon>GggsPublishNoticeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fzk\FzkPunishQueryView.xaml.cs">
+      <DependentUpon>FzkPunishQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fzk\FzkPunishUpdateView.xaml.cs">
+      <DependentUpon>FzkPunishUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HealthArchiveListView.xaml.cs">
+      <DependentUpon>HealthArchiveListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HotLineCheckView.xaml.cs">
+      <DependentUpon>HotLineCheckView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HotLineDealView.xaml.cs">
+      <DependentUpon>HotLineDealView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HotLineShowView.xaml.cs">
+      <DependentUpon>HotLineShowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HotLineView.xaml.cs">
+      <DependentUpon>HotLineView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HotLineListView.xaml.cs">
+      <DependentUpon>HotLineListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Kjss\SskRequestQueryView.xaml.cs">
+      <DependentUpon>SskRequestQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Kjss\SskRequestUpdateView.xaml.cs">
+      <DependentUpon>SskRequestUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainFrameView.xaml.cs">
+      <DependentUpon>MainFrameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Map\YuChangMapView.xaml.cs">
+      <DependentUpon>YuChangMapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Map\YuChengMapView.xaml.cs">
+      <DependentUpon>YuChengMapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MonthRegisterApproveView.xaml.cs">
+      <DependentUpon>MonthRegisterApproveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MonthRegisterListView.xaml.cs">
+      <DependentUpon>MonthRegisterListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaterialDeclareBuildView.xaml.cs">
+      <DependentUpon>MaterialDeclareBuildView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaterialDeclareView.xaml.cs">
+      <DependentUpon>MaterialDeclareView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonArchiveListView.xaml.cs">
+      <DependentUpon>PersonArchiveListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Qbyq\QbyqInfoAnalysisQueryView.xaml.cs">
+      <DependentUpon>QbyqInfoAnalysisQueryView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Qbyq\QbyqInfoAnalysisUpdateView.xaml.cs">
+      <DependentUpon>QbyqInfoAnalysisUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sgk\SgkAccidentQueryView.xaml.cs">
+      <DependentUpon>SgkAccidentQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sgk\SgkAccidentUpdateView.xaml.cs">
+      <DependentUpon>SgkAccidentUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sgk\SgkReleaseCarPrintView.xaml.cs">
+      <DependentUpon>SgkReleaseCarPrintView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sgk\SgkReleaseCarQueryView.xaml.cs">
+      <DependentUpon>SgkReleaseCarQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sgk\SgkReleaseCarUpdateView.xaml.cs">
+      <DependentUpon>SgkReleaseCarUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShellWindow.xaml.cs">
+      <DependentUpon>ShellWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbCyDangerDealUpdateAfterView.xaml.cs">
+      <DependentUpon>LbCyDangerDealUpdateAfterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbCyPunishGatherView.xaml.cs">
+      <DependentUpon>LbCyPunishGatherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbStaticLogbookDocView.xaml.cs">
+      <DependentUpon>LbStaticLogbookDocView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbZdStaffInfoQueryView.xaml.cs">
+      <DependentUpon>LbZdStaffInfoQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbZdStaffInfoUpdateView.xaml.cs">
+      <DependentUpon>LbZdStaffInfoUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\FrequentMainView.xaml.cs">
+      <DependentUpon>FrequentMainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbStaticLogbookDetailsView.xaml.cs">
+      <DependentUpon>LbStaticLogbookDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LogbookMainView.xaml.cs">
+      <DependentUpon>LogbookMainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonArchiveView.xaml.cs">
+      <DependentUpon>PersonArchiveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HealthArchiveView.xaml.cs">
+      <DependentUpon>HealthArchiveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MonthRegisterView.xaml.cs">
+      <DependentUpon>MonthRegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MonthRegisterGatherView.xaml.cs">
+      <DependentUpon>MonthRegisterGatherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbConfigQueryView.xaml.cs">
+      <DependentUpon>LbConfigQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbConfigUpdateView.xaml.cs">
+      <DependentUpon>LbConfigUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserAdminView.xaml.cs">
+      <DependentUpon>UserAdminView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserEditView.xaml.cs">
+      <DependentUpon>UserEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkBookView.xaml.cs">
+      <DependentUpon>WorkBookView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbStaticLogbookUpdateView.xaml.cs">
+      <DependentUpon>LbStaticLogbookUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbStaticLogbookQueryView.xaml.cs">
+      <DependentUpon>LbStaticLogbookQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbCyPunishUpdateView.xaml.cs">
+      <DependentUpon>LbCyPunishUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbCyPunishQueryView.xaml.cs">
+      <DependentUpon>LbCyPunishQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaterialDeclareGatherView.xaml.cs">
+      <DependentUpon>MaterialDeclareGatherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbCyPatrolUpdateView.xaml.cs">
+      <DependentUpon>LbCyPatrolUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbCyPatrolQueryView.xaml.cs">
+      <DependentUpon>LbCyPatrolQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbCyDangerDealUpdateBeforeView.xaml.cs">
+      <DependentUpon>LbCyDangerDealUpdateBeforeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SquadronLogbook\LbCyDangerDealQueryView.xaml.cs">
+      <DependentUpon>LbCyDangerDealQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zgxc\ZgxcAskForLeaveQueryView.xaml.cs">
+      <DependentUpon>ZgxcAskForLeaveQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zgxc\ZgxcAskForLeaveUpdateView.xaml.cs">
+      <DependentUpon>ZgxcAskForLeaveUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zgxc\ZgxcAssistantCheckinQueryView.xaml.cs">
+      <DependentUpon>ZgxcAssistantCheckinQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zgxc\ZgxcAssistantCheckinUpdateView.xaml.cs">
+      <DependentUpon>ZgxcAssistantCheckinUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zgxc\ZgxcPersonnelChangeQueryView.xaml.cs">
+      <DependentUpon>ZgxcPersonnelChangeQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zgxc\ZgxcPersonnelChangeUpdateView.xaml.cs">
+      <DependentUpon>ZgxcPersonnelChangeUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zgxc\ZgxcPublicityLogbookQueryView.xaml.cs">
+      <DependentUpon>ZgxcPublicityLogbookQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zgxc\ZgxcPublicityLogbookUpdateView.xaml.cs">
+      <DependentUpon>ZgxcPublicityLogbookUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxElectronMonitorDetailView.xaml.cs">
+      <DependentUpon>ZhzxElectronMonitorDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxElectronMonitorListView.xaml.cs">
+      <DependentUpon>ZhzxElectronMonitorListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxFakePlateNumberView.xaml.cs">
+      <DependentUpon>ZhzxFakePlateNumberView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxFilterQueryView.xaml.cs">
+      <DependentUpon>ZhzxFilterQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxFilterUpdateView.xaml.cs">
+      <DependentUpon>ZhzxFilterUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxFixedAssetsRegisterDetailView.xaml.cs">
+      <DependentUpon>ZhzxFixedAssetsRegisterDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxFixedAssetsRegisterListView.xaml.cs">
+      <DependentUpon>ZhzxFixedAssetsRegisterListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxOfficeSupplyStockDetailView.xaml.cs">
+      <DependentUpon>ZhzxOfficeSupplyStockDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxOfficeSupplyStockListView.xaml.cs">
+      <DependentUpon>ZhzxOfficeSupplyStockListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxTotalViolationDetailView.xaml.cs">
+      <DependentUpon>ZhzxTotalViolationDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxTotalViolationListView.xaml.cs">
+      <DependentUpon>ZhzxTotalViolationListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxTrafficViolationDetailsView.xaml.cs">
+      <DependentUpon>ZhzxTrafficViolationDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxTrafficViolationGatherView.xaml.cs">
+      <DependentUpon>ZhzxTrafficViolationGatherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxTrafficViolationView.xaml.cs">
+      <DependentUpon>ZhzxTrafficViolationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxRequestUpdateView.xaml.cs">
+      <DependentUpon>ZhzxRequestUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zhzx\ZhzxRequestQueryView.xaml.cs">
+      <DependentUpon>ZhzxRequestQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Kjss\KjkRequestQueryView.xaml.cs">
+      <DependentUpon>KjkRequestQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Kjss\KjkRequestUpdateView.xaml.cs">
+      <DependentUpon>KjkRequestUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zxk\ZxkOrderQueryView.xaml.cs">
+      <DependentUpon>ZxkOrderQueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Zxk\ZxkOrderUpdateView.xaml.cs">
+      <DependentUpon>ZxkOrderUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CustomMarkers\Circle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomMarkers\Cross.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomMarkers\CustomMarkerDemo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomMarkers\CustomMarkerRed.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MapControls\TrolleyTooltip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\DataResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ImageResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ModuleResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Theme.WhistlerBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AlarmNotify.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Cgs\CgsKeyCompanyLogbookQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Cgs\CgsKeyCompanyLogbookUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Cgs\CgsKeyDriverLogbookQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Cgs\CgsKeyDriverLogbookUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Cgs\CgsKeyVehicleLogbookQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Cgs\CgsKeyVehicleLogbookUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Cgs\CgsVehicleAdminQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Cgs\CgsVehicleAdminUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Cgs\CgsYellowMarkCarQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Cgs\CgsYellowMarkCarUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FrequentUsedLinkConfigView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Fzk\FzkChangeMeasureQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Fzk\FzkChangeMeasureUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Fzk\FzkConsultationQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Fzk\FzkConsultationUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Fzk\FzkLawQualityLogbookQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Fzk\FzkLawQualityLogbookUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Fzk\FzkPetitionQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Fzk\FzkPetitionUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Fzk\FzkReleaseCarPrintView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Fzk\FzkReleaseCarQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Fzk\FzkReleaseCarUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Gggs\GggsPublishNoticeDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Gggs\GggsPublishNoticeListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Fzk\FzkPunishQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Fzk\FzkPunishUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HealthArchiveListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HotLineCheckView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HotLineDealView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HotLineShowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HotLineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HotLineListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Kjss\SskRequestQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Kjss\SskRequestUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainFrameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Map\YuChangMapView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Map\YuChengMapView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MonthRegisterApproveView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MonthRegisterListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MaterialDeclareBuildView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MaterialDeclareView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PersonArchiveListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Qbyq\QbyqInfoAnalysisQueryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Qbyq\QbyqInfoAnalysisUpdateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sgk\SgkAccidentQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Sgk\SgkAccidentUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Sgk\SgkReleaseCarPrintView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Sgk\SgkReleaseCarQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Sgk\SgkReleaseCarUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShellWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbCyDangerDealUpdateAfterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbCyPunishGatherView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbStaticLogbookDocView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbZdStaffInfoQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbZdStaffInfoUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\FrequentMainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbStaticLogbookDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LogbookMainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PersonArchiveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HealthArchiveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MonthRegisterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MonthRegisterGatherView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbConfigQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbConfigUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserAdminView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\WorkBookView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbStaticLogbookUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbStaticLogbookQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbCyPunishUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbCyPunishQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MaterialDeclareGatherView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbCyPatrolUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbCyPatrolQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbCyDangerDealUpdateBeforeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SquadronLogbook\LbCyDangerDealQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zgxc\ZgxcAskForLeaveQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zgxc\ZgxcAskForLeaveUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zgxc\ZgxcAssistantCheckinQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zgxc\ZgxcAssistantCheckinUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zgxc\ZgxcPersonnelChangeQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zgxc\ZgxcPersonnelChangeUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zgxc\ZgxcPublicityLogbookQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zgxc\ZgxcPublicityLogbookUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxElectronMonitorDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxElectronMonitorListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxFakePlateNumberView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxFilterQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxFilterUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxFixedAssetsRegisterDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxFixedAssetsRegisterListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxOfficeSupplyStockDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxOfficeSupplyStockListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxTotalViolationDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxTotalViolationListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxTrafficViolationDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxTrafficViolationGatherView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxTrafficViolationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxRequestUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zhzx\ZhzxRequestQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Kjss\KjkRequestQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Kjss\KjkRequestUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zxk\ZxkOrderQueryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Zxk\ZxkOrderUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\FzkReleaseCarPrint.rdlc" />
+    <EmbeddedResource Include="Resources\LbCyPunishGatherReport.rdlc" />
+    <EmbeddedResource Include="Resources\MonthRegisterChart.rdlc" />
+    <EmbeddedResource Include="Resources\SgkReleaseCarPrint.rdlc" />
+    <EmbeddedResource Include="Resources\TrafficViolationApproveReport.rdlc" />
+    <EmbeddedResource Include="Resources\TrafficViolationUploadReport.rdlc" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Config\System.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet.Business\DotNet.Business.csproj">
+      <Project>{D99B80B7-4433-4EF8-ABAE-9C3EBC6B098C}</Project>
+      <Name>DotNet.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.Utilities\DotNet.Utilities.csproj">
+      <Project>{2FB4C4A9-F14C-4CDD-9D0E-7C4E7CEBEBDD}</Project>
+      <Name>DotNet.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WafTraffic.Applications\WafTraffic.Applications.csproj">
+      <Project>{98A1B026-7B2D-4156-990D-42A565E135DD}</Project>
+      <Name>WafTraffic.Applications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WafTraffic.Domain\WafTraffic.Domain.csproj">
+      <Project>{18A33DDE-67A8-447D-BEFA-5B9EEB3C863F}</Project>
+      <Name>WafTraffic.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BookLibrary.ico" />
+    <Resource Include="Resources\Images\Copy.png" />
+    <Resource Include="Resources\Images\Cut.png" />
+    <Resource Include="Resources\Images\Delete.png" />
+    <Resource Include="Resources\Images\Email.png" />
+    <Resource Include="Resources\Images\Paste.png" />
+    <Resource Include="Resources\Images\Redo.png" />
+    <Resource Include="Resources\Images\Save.png" />
+    <Resource Include="Resources\Images\Undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\history.png" />
+    <Resource Include="Resources\Images\link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\bj.png" />
+    <Resource Include="Resources\Images\icon_fzk.png" />
+    <Resource Include="Resources\Images\icon_gggs.png" />
+    <Resource Include="Resources\Images\icon_qbyq.png" />
+    <Resource Include="Resources\Images\icon_sgk.png" />
+    <Resource Include="Resources\Images\icon_xtsz.png" />
+    <Resource Include="Resources\Images\icon_zdtz.png" />
+    <Resource Include="Resources\Images\icon_zgxc.png" />
+    <Resource Include="Resources\Images\icon_zhzx.png" />
+    <Resource Include="Resources\Images\icon_zxk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\badge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\beijing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icon_button_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icon_button_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icon_button_query.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Browse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\DeleteGrid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Archive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icon_button_cancel.png" />
+    <Resource Include="Resources\Images\icon_button_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icon_treenode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Modify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icon_button_display.png" />
+    <Resource Include="Resources\Images\icon_button_download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icon_button_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icon_button_stat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icon_button_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icon_button_upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icon_button_clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icon_ycTrafficSystem.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icon_button_checkAlarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\user.png" />
+    <Resource Include="Resources\Images\worklist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\icon_kjk.png" />
+    <Resource Include="Resources\Images\icon_ssk.png" />
+    <Resource Include="Resources\Images\setting.png" />
+    <Resource Include="Resources\Images\iexplorer.png" />
+    <Resource Include="Resources\Images\icon_button_print.png" />
+    <Resource Include="Resources\Images\icon_button_supervise.png" />
+    <Resource Include="Resources\Images\icon_button_export.png" />
+    <Resource Include="Resources\Images\icon_button_import.png" />
+    <Resource Include="Resources\Images\icon_map.png" />
+    <Resource Include="Resources\Images\expired_picture.png" />
+    <Resource Include="Resources\Images\last.png" />
+    <Resource Include="Resources\Images\next.png" />
+    <Resource Include="Resources\Images\leftRevolve.png" />
+    <Resource Include="Resources\Images\rightRevolve.png" />
+    <Resource Include="Resources\Images\small.png" />
+    <Resource Include="Resources\Images\big.png" />
+    <Resource Include="Resources\Images\zoom+.png" />
+    <Resource Include="Resources\Images\zoom-.png" />
+    <Resource Include="CustomMarkers\bigMarkerGreen.png" />
+    <Resource Include="CustomMarkers\red-dot.png" />
+    <Resource Include="CustomMarkers\bigMarkerBlue.png" />
+    <Resource Include="CustomMarkers\bigMarkerOrange.png" />
+    <Resource Include="CustomMarkers\Bayonet.png" />
+    <Resource Include="CustomMarkers\Camera.png" />
+    <Resource Include="CustomMarkers\SignalLamp.png" />
+    <Resource Include="CustomMarkers\bigMarkerPink.png" />
+    <Resource Include="CustomMarkers\bigMarkerPople.png" />
+    <Resource Include="CustomMarkers\bigMarkerRed.png" />
+    <Content Include="Resources\Audioes\notice.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\Images\icon_cgs.png" />
+    <Resource Include="Resources\Images\icon_dbsx.png" />
+    <Resource Include="Resources\Images\moto_police.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

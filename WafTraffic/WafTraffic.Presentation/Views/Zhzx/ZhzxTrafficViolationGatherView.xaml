@@ -1,0 +1,144 @@
+<UserControl x:Class="WafTraffic.Presentation.Views.ZhzxTrafficViolationGatherView"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:mode="clr-namespace:WafTraffic.Domain;assembly=WafTraffic.Domain"
+            xmlns:my="clr-namespace:CustomControlLibrary;assembly=CustomControlLibrary"
+             xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms" 
+             FontFamily="Microsoft YaHei"
+             mc:Ignorable="d" 
+             d:DesignHeight="1024" d:DesignWidth="1000">
+    <Grid>
+        <TabControl Margin="0"  Background="{x:Null}" BorderThickness="2" VerticalAlignment="Top">
+            <TabItem Header="上传人员统计" Height="40" Width="145" Margin="0" >
+                <Grid Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" HorizontalAlignment="Left" Width="1200" >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="起止日期:" Margin="20 6 1 6" TextAlignment="Right" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                            <xctk:DateTimePicker x:Name="tbUploadStartDate"
+                                    Margin="8" Width="200"
+                                    Format="Custom"
+                                    FormatString="yyyy-MM-dd HH:mm:ss"
+                                    AutoCloseCalendar="True"
+                                    TimePickerVisibility ="Collapsed"
+                                    Watermark="抓拍时间"
+                                    VerticalAlignment="Center"
+                                    IsReadOnly="False" />
+
+                            <Image Source ="/Resources/Images/bar.png" 
+                                Margin="1" VerticalAlignment="Center" Height="16" Width="16" />
+
+                            <xctk:DateTimePicker x:Name="tbUploadEndDate"
+                                    Margin="8" Width="200"
+                                    Format="Custom"
+                                    FormatString="yyyy-MM-dd HH:mm:ss"
+                                    AutoCloseCalendar="True"
+                                    TimePickerVisibility ="Collapsed"
+                                    Watermark="抓拍时间"
+                                    VerticalAlignment="Center"
+                                    IsReadOnly="False" />
+
+                            <Button Name="btnUploadQueryGather" Command="{Binding UploadQueryGatherCommand}" Width="80" Margin="10 6 10 6" Click="btnUploadQueryGather_Click">
+                                <Button.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source ="pack://application:,,,/Resources/Images/icon_button_stat.png" 
+                                        Width="20" Height="20" Margin="0,0,7,0" />
+                                        <TextBlock Text="统 计" Foreground="DarkSlateBlue" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </Button.Content>
+                            </Button>
+
+                            <Button Name="btnUploadGatherRetreat" Command="{Binding Path=RetreatCommand}" Width="80" Margin="10 6 10 6">
+                                <Button.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source ="pack://application:,,,/Resources/Images/icon_button_back.png" 
+                                            Width="20" Height="20" Margin="0,0,7,0" />
+                                        <TextBlock Text="返 回" Foreground="DarkSlateBlue" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </Button.Content>
+                            </Button>
+
+                        </StackPanel>
+                    </Grid>
+
+                    <WindowsFormsHost Grid.Row="1" Height="Auto" Width="Auto"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="480" MinWidth="1000">
+                        <rv:ReportViewer x:Name="_uploadReportViewer" />
+                    </WindowsFormsHost>
+                </Grid>
+            </TabItem>
+
+
+            <TabItem Header="审核人员统计" Height="40" Width="145" Margin="0" >
+                <Grid Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" HorizontalAlignment="Left" Width="1200" >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="起止日期:" Margin="20 6 1 6" TextAlignment="Right" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                            <xctk:DateTimePicker x:Name="tbApproveStartDate"
+                                    Margin="8" Width="200"
+                                    Format="Custom"
+                                    FormatString="yyyy-MM-dd HH:mm:ss"
+                                    AutoCloseCalendar="True"
+                                    TimePickerVisibility ="Collapsed"
+                                    Watermark="抓拍时间"
+                                    VerticalAlignment="Center"
+                                    IsReadOnly="False" />
+
+                            <Image Source ="/Resources/Images/bar.png" 
+                            Margin="1" VerticalAlignment="Center" Height="16" Width="16" />
+
+                            <xctk:DateTimePicker x:Name="tbApproveEndDate"
+                                    Margin="8" Width="200"
+                                    Format="Custom"
+                                    FormatString="yyyy-MM-dd HH:mm:ss"
+                                    AutoCloseCalendar="True"
+                                    TimePickerVisibility ="Collapsed"
+                                    Watermark="抓拍时间"
+                                    VerticalAlignment="Center"
+                                    IsReadOnly="False" />
+
+                            <Button Name="btnApproveQueryGather" Command="{Binding ApproveQueryGatherCommand}" Width="80" Margin="10 6 10 6" Click="btnApproveQueryGather_Click">
+                                <Button.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source ="pack://application:,,,/Resources/Images/icon_button_stat.png" 
+                                        Width="20" Height="20" Margin="0,0,7,0" />
+                                        <TextBlock Text="统 计" Foreground="DarkSlateBlue" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </Button.Content>
+                            </Button>
+
+                            <Button Name="btnApproveGatherRetreat" Command="{Binding Path=RetreatCommand}" Width="80" Margin="10 6 10 6">
+                                <Button.Content>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source ="pack://application:,,,/Resources/Images/icon_button_back.png" 
+                                            Width="20" Height="20" Margin="0,0,7,0" />
+                                        <TextBlock Text="返 回" Foreground="DarkSlateBlue" FontSize="13" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </Button.Content>
+                            </Button>
+
+                        </StackPanel>
+                    </Grid>
+
+                    <WindowsFormsHost Grid.Row="1" Height="Auto" Width="Auto"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="480" MinWidth="1000">
+                        <rv:ReportViewer x:Name="_approveReportViewer" />
+                    </WindowsFormsHost>
+
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+
+</UserControl>
+    

@@ -1,0 +1,133 @@
+<UserControl x:Class="WafTraffic.Presentation.Views.MaterialDeclareBuildView"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             FontFamily="Microsoft YaHei"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="700">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="500"></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Text="部门科室:" Grid.Row="1" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" />
+        <ComboBox x:Name="cbxDepartment" Margin="8" Grid.Row="1" Grid.Column="2"  SelectedValuePath="Id" DisplayMemberPath="FullName" 
+                ItemsSource="{Binding DepartmentList}" SelectedValue="{Binding MaterialDeclareBuild.DepartmentId}" IsEnabled="{Binding CanDepartEdit}"></ComboBox>
+        <TextBlock Text="*" Foreground="Red" Grid.Row="1" Grid.Column="3" Margin="0,16,0,0" TextAlignment="Left" />
+            
+        <TextBlock Text="材料题目:" Grid.Row="2" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding MaterialDeclareBuild.MaterialTitle}" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" 
+                 IsReadOnly="{Binding CanTitleEdit}" MaxLength="50" />
+        <TextBlock Text="*" Foreground="Red" Grid.Row="2" Grid.Column="3" Margin="0,16,0,0" TextAlignment="Left" />
+        
+        <TextBlock Text="材料作者:" Grid.Row="3" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center"  />
+        <TextBox Margin="8" Grid.Row="3" Grid.Column="2" Text="{Binding MaterialDeclareBuild.Author}" VerticalAlignment="Center" 
+                 IsReadOnly="{Binding CanAuthorEdit}" MaxLength="20"/>
+        
+        <TextBlock Text="申报时间:" Grid.Row="4" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center"/>
+        <xctk:DateTimePicker x:Name="_declareDate" IsReadOnly="{Binding CanDeclareTimeEdit}"
+                                  Grid.Row="4" Grid.Column="2"
+                                 Margin="8" TextAlignment="Left"
+                                    Format="Custom" FormatString="yyyy-MM-dd"
+                                  AutoCloseCalendar="True"
+                                  TimePickerVisibility ="Collapsed"
+                                 VerticalAlignment="Stretch"                                 
+                                 Value="{Binding MaterialDeclareBuild.MaterialDeclareTime}" />
+        <TextBlock Text="*" Foreground="Red" Grid.Row="4" Grid.Column="3" Margin="0,16,0,0" TextAlignment="Left" />
+
+        <TextBlock Text="发表时间:" Grid.Row="5" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center"/>
+            <xctk:DateTimePicker x:Name="_issueDate" IsReadOnly="{Binding CanIssueTimeEdit}"
+                                 Grid.Row="5" Grid.Column="2" 
+                                 Margin="8" Format="Custom" FormatString="yyyy-MM-dd"
+                                  AutoCloseCalendar="True" TextAlignment="Left"
+                                  TimePickerVisibility ="Collapsed"
+                                 VerticalAlignment="Stretch"                                
+                                 Value="{Binding MaterialDeclareBuild.MaterialIssueTime}" />
+
+        <TextBlock Text="评分:"  TextAlignment="Right" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" Name="tbScore"/>
+        <ComboBox Grid.Row="6" Grid.Column="2" Margin="8" SelectedValue="{Binding MaterialDeclareBuild.Score}" 
+                  SelectedValuePath="Tag" Name="cbxScore" IsEnabled="{Binding CanScoreEdit}">
+            <ComboBoxItem IsSelected="True" Content="中央级（10分）" Tag="10"></ComboBoxItem>
+            <ComboBoxItem Content="省级（5分）" Tag="5"></ComboBoxItem>
+            <ComboBoxItem Content="市级（3分）" Tag="3"></ComboBoxItem>
+            <ComboBoxItem Content="县级（1分）" Tag="1"></ComboBoxItem>
+            <ComboBoxItem Content="其他（不计分）" Tag="0"></ComboBoxItem>
+        </ComboBox>
+
+
+        <TextBlock Text="创建人:" Grid.Row="7" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" Visibility="{Binding CanCreatorVisibal}" />
+        <TextBox Margin="8" Grid.Row="7" Grid.Column="2" Text="{Binding MaterialDeclareBuild.CreateUserName}" VerticalAlignment="Center" IsReadOnly="True" Visibility="{Binding CanCreatorVisibal}"/>
+
+        <TextBlock Text="创建时间:" Grid.Row="8" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" Visibility="{Binding CanCreatorVisibal}"/>
+        <xctk:DateTimePicker x:Name="_createDate" Visibility="{Binding CanCreatorVisibal}"
+                                  Grid.Row="8" Grid.Column="2" 
+                                 Margin="8" IsReadOnly="True" TextAlignment="Left"
+                                    Format="Custom" FormatString="yyyy-MM-dd HH:mm:ss"
+                                  AutoCloseCalendar="True"
+                                  TimePickerVisibility ="Collapsed"
+                                 VerticalAlignment="Stretch"                                 
+                                 Value="{Binding MaterialDeclareBuild.SubmitTime}" />
+
+
+        <TextBlock Text="审批人:" Grid.Row="9" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" Visibility="{Binding CanCreatorVisibal}" />
+        <TextBox Margin="8" Grid.Row="9" Grid.Column="2" Text="{Binding MaterialDeclareBuild.ApprovalName}" VerticalAlignment="Center" IsReadOnly="True" Visibility="{Binding CanCreatorVisibal}"/>
+
+        <TextBlock Text="审批时间:" Grid.Row="10" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" Visibility="{Binding CanCreatorVisibal}"/>
+        <xctk:DateTimePicker x:Name="_approveDate" Visibility="{Binding CanCreatorVisibal}"
+                                  Grid.Row="10" Grid.Column="2"
+                                 Margin="8" IsReadOnly="True" TextAlignment="Left"
+                                    Format="Custom" FormatString="yyyy-MM-dd HH:mm:ss"
+                                  AutoCloseCalendar="True"
+                                  TimePickerVisibility ="Collapsed"
+                                 VerticalAlignment="Stretch"                                 
+                                 Value="{Binding MaterialDeclareBuild.ApprovalTime}" />
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+
+            <Button Name="btnSave" Command="{Binding Path=SaveCommand}" Width="90" Margin="20" Visibility="{Binding CanSave}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source ="pack://application:,,,/Resources/Images/icon_button_save.png" 
+                                            Width="22" Height="22" Margin="0,0,7,0" />
+                        <TextBlock Text="保 存" Foreground="DarkSlateBlue" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button Name="btnRetreat" Command="{Binding Path=RetreatCommand}" Width="90" Margin="20" >
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source ="pack://application:,,,/Resources/Images/icon_button_back.png" 
+                                            Width="22" Height="22" Margin="0,0,7,0" />
+                        <TextBlock Text="返 回" Foreground="DarkSlateBlue" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+
+        </StackPanel>
+            
+    </Grid>
+</UserControl>

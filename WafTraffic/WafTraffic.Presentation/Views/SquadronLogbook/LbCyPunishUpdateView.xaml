@@ -1,0 +1,145 @@
+<UserControl x:Class="WafTraffic.Presentation.Views.LbCyPunishUpdateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             d:DesignHeight="611"
+             d:DesignWidth="1153"
+             FontFamily="Microsoft YaHei"
+             FontSize="15"
+             mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Orientation="Vertical">
+            <Grid x:Name="printArea" Width="898">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="65" />
+                <ColumnDefinition Width="193" />
+                <ColumnDefinition Width="350" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="130" />
+                    <RowDefinition Height="140" />
+                </Grid.RowDefinitions>
+
+
+                <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"
+                        Text="责任人 :" TextAlignment="Right" />
+
+                <TextBox Grid.Row="1" Grid.Column="2" Margin="8" Height="33"
+                     TextWrapping="Wrap"  AcceptsReturn="True"
+                     IsReadOnly="True" VerticalAlignment="Center"
+                     Text="{Binding PunishEntity.CreateName}" />
+
+                <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"
+                        Text="责任单位 :" TextAlignment="Right" />
+                <TextBox Grid.Row="2" Grid.Column="2" Margin="8" Height="33"
+                     TextWrapping="Wrap"  AcceptsReturn="True"
+                     IsReadOnly="True" VerticalAlignment="Center"
+                     Text="{Binding PunishEntity.OwnDepartmentName}" />
+
+                <TextBlock Grid.Row="3"
+                   Grid.Column="1"
+                   VerticalAlignment="Center"
+                   Text="处罚日期 :"
+                   TextAlignment="Right" />
+                <DatePicker x:Name="dpPatrolDate"
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Margin="8"
+                    VerticalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    FirstDayOfWeek="Monday"
+                    IsTodayHighlighted="True"
+                    SelectedDate="{Binding Path=PunishEntity.PatrolDate}" Height="33" />
+
+                <TextBlock Grid.Row="4"
+                   Grid.Column="1"
+                   VerticalAlignment="Center"
+                   Text="处罚情况 :"
+                   TextAlignment="Right" />
+                <TextBox Grid.Row="4"
+                 Grid.Column="2"
+                 Margin="8"
+                 Height="110"
+                 TextWrapping="Wrap" MaxLength="500" AcceptsReturn="True"
+                 IsReadOnly="True"
+                 VerticalAlignment="Center"
+                 Text="&#13;     一般程序                        起&#13;&#13;     简易程序                        起"/>
+                <TextBox Grid.Row="4" Grid.Column="2" Height="25" Width="50" Margin="120 32 10 10" HorizontalAlignment="Left" 
+                 VerticalAlignment="Top" Text="{Binding PunishEntity.CommonProcedure}" IsReadOnly="{Binding Path=IsBrowse}"></TextBox>
+                <TextBox Grid.Row="4" Grid.Column="2" Height="25" Width="50" Margin="120 72 10 10" HorizontalAlignment="Left" 
+                 VerticalAlignment="Top" Text="{Binding PunishEntity.SimpleProcedure}" IsReadOnly="{Binding Path=IsBrowse}"></TextBox>
+
+                <TextBlock Grid.Row="5"
+                   Grid.Column="1"
+                   VerticalAlignment="Center"
+                   Text="备注 :"
+                   TextAlignment="Right" />
+
+                <TextBox Grid.Row="5"
+                 Grid.Column="2"
+                 Margin="8"
+                 Height="120"
+                 TextWrapping="Wrap" MaxLength="250" AcceptsReturn="True"
+                 IsReadOnly="{Binding Path=IsBrowse}"
+                 VerticalAlignment="Center"
+                 Text="{Binding PunishEntity.Remark}"/>
+
+            </Grid>
+
+            <Grid Height="60">
+                <Button x:Name="btnSave"
+                Width="90"
+                Margin="40,10,220,0"
+                Command="{Binding Path=SaveCommand}"
+                Height="50">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_save.png" 
+                           Width="32" Height="32" />
+                            <TextBlock Text="保 存" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="btnCancel"
+                Width="90"
+                Margin="136,10,124,0"
+                Command="{Binding Path=CancelCommand}"
+                Height="50" >
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_cancel.png" 
+                           Width="32" Height="32" />
+                            <TextBlock Text="取 消" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+
+                <Button x:Name="btnBack" Command="{Binding Path=CancelCommand}" Height="50" Margin="136,10,124,0" Width="90" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="32" Source="pack://application:,,,/Resources/Images/icon_button_cancel.png" Width="32" />
+                        <TextBlock FontSize="15" Foreground="DarkSlateBlue" HorizontalAlignment="Center" Text="返 回" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="btnPrint" Click="btnPrint_Click" Height="50" Margin="40,10,220,0" Width="90" Grid.Column="2" Grid.Row="10">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="32" Source="pack://application:,,,/Resources/Images/icon_button_print.png" Width="32" />
+                        <TextBlock FontSize="15" Foreground="DarkSlateBlue" HorizontalAlignment="Center" Text="打 印" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
+
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
+    

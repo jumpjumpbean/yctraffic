@@ -1,0 +1,206 @@
+<UserControl x:Class="WafTraffic.Presentation.Views.CgsKeyVehicleLogbookUpdateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:LoadingMask;assembly=WpfLoadingMask"
+             d:DesignHeight="1024"
+             d:DesignWidth="990"
+             FontFamily="Microsoft YaHei"
+             FontSize="15"
+             mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="340" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="340" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="55" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal"  Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="5" HorizontalAlignment="Center">
+
+
+                <Button x:Name="btnSave" Visibility="{Binding CanSaveVisibal}"
+                Width="90" Height="50"  Margin="8 0 8 0"
+                Command="{Binding Path=SaveCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_save.png" 
+                           Width="32" Height="32" />
+                            <TextBlock Text="保 存" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="btnCancel"
+                Width="90" Height="50" Margin="8 0 8 0"
+                Command="{Binding Path=CancelCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_cancel.png" 
+                           Width="32" Height="32" />
+                            <TextBlock Text="取 消" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+
+            <TextBlock Text="号牌种类 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="1" Grid.Row="1" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="20" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding KeyVehicleLogbookEntity.PlateType}" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+
+            <TextBlock Text="号牌号码 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="4" Grid.Row="1" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="20" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding KeyVehicleLogbookEntity.PlateNumber}" VerticalAlignment="Center" Grid.Column="5" Grid.Row="1" />
+
+            <TextBlock Grid.Column="1" Grid.Row="2"
+                   Text="车辆品牌 :" TextAlignment="Right" VerticalAlignment="Center" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="20" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding KeyVehicleLogbookEntity.VehicleBrand}" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" />
+
+            <TextBlock Grid.Column="4" Grid.Row="2"
+                   Text="车辆类型 :" TextAlignment="Right" VerticalAlignment="Center" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="30" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding KeyVehicleLogbookEntity.VehicleType}" VerticalAlignment="Center" Grid.Column="5" Grid.Row="2" />
+
+            <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"
+                        Text="初次登记 :" TextAlignment="Right" />
+            <xctk:DateTimePicker Grid.Row="3" Grid.Column="2"  IsReadOnly="{Binding IsTitleReadOnly}"
+                                 Margin="8 8 8 8" Format="Custom" FormatString="yyyy-MM-dd"
+                                  AutoCloseCalendar="True" TextAlignment="Left"
+                                  TimePickerVisibility ="Collapsed"
+                                 VerticalAlignment="Stretch"                                
+                                 Value="{Binding KeyVehicleLogbookEntity.InitialRegistration}" />
+
+            <TextBlock Grid.Row="3" Grid.Column="4" VerticalAlignment="Center"
+                        Text="有限期止 :" TextAlignment="Right" />
+            <xctk:DateTimePicker Grid.Row="3" Grid.Column="5"  IsReadOnly="{Binding IsTitleReadOnly}"
+                                 Margin="8 8 8 8" Format="Custom" FormatString="yyyy-MM-dd"
+                                  AutoCloseCalendar="True" TextAlignment="Left"
+                                  TimePickerVisibility ="Collapsed" 
+                                 VerticalAlignment="Stretch"                               
+                                 Value="{Binding KeyVehicleLogbookEntity.ValidityDate}" />
+
+            <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"
+                        Text="强制报废期止 :" TextAlignment="Right" />
+            <xctk:DateTimePicker Grid.Row="4" Grid.Column="2"  IsReadOnly="{Binding IsTitleReadOnly}"
+                                 Margin="8 8 8 8" Format="Custom" FormatString="yyyy-MM-dd"
+                                  AutoCloseCalendar="True" TextAlignment="Left"
+                                  TimePickerVisibility ="Collapsed" 
+                                 VerticalAlignment="Stretch"                               
+                                 Value="{Binding KeyVehicleLogbookEntity.ForceEliminateDate}" />
+
+            <TextBlock Text="营运类型 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="4" Grid.Row="4" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="20" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding KeyVehicleLogbookEntity.OperationType}" VerticalAlignment="Center" Grid.Column="5" Grid.Row="4" />
+
+            <TextBlock Grid.Column="1" Grid.Row="5"
+                   Text="状态 :" TextAlignment="Right" VerticalAlignment="Center" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="30" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding KeyVehicleLogbookEntity.VehicleStatus}" VerticalAlignment="Center" Grid.Column="2" Grid.Row="5" />
+            
+            <TextBlock Text="是否挂靠 :" Grid.Row="5" Grid.Column="4" TextAlignment="Right"  VerticalAlignment="Center" HorizontalAlignment="Right" />
+            <ComboBox Grid.Row="5" Grid.Column="5" Margin="8" SelectedValue="{Binding KeyVehicleLogbookEntity.IsAttached}" HorizontalAlignment="Left" Width="150"
+                  SelectedValuePath="Content" Name="cbxCategory" IsEnabled="{Binding CanGovCarEnable}">
+                <ComboBoxItem IsSelected="True" Content="否" ></ComboBoxItem>
+                <ComboBoxItem Content="是" ></ComboBoxItem>
+            </ComboBox>
+
+
+            <TextBlock Text="驾驶人 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="1" Grid.Row="6" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="20" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding KeyVehicleLogbookEntity.DriverName}" VerticalAlignment="Center" Grid.Column="2" Grid.Row="6" />
+
+
+            <TextBlock Text="服务学校 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="4" Grid.Row="6" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="30" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding KeyVehicleLogbookEntity.ServicedSchool}" VerticalAlignment="Center" Grid.Column="5" Grid.Row="6" />
+
+
+            <TextBlock Text="变化情况 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="1" Grid.Row="7" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="30" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding KeyVehicleLogbookEntity.Changes}" VerticalAlignment="Center" Grid.Column="2" Grid.Row="7" />
+
+            <TextBlock Text="责任中队 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="4" Grid.Row="7" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="20" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding KeyVehicleLogbookEntity.OwnerDepartment}" VerticalAlignment="Center" Grid.Column="5" Grid.Row="7" />
+
+            <TextBlock Text="备注 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="1" Grid.Row="8" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="50" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding KeyVehicleLogbookEntity.Remark}" VerticalAlignment="Center" Grid.Column="2" Grid.Row="8" />
+
+
+
+            <TextBlock Grid.Row="8" Grid.Column="4" VerticalAlignment="Center"
+                        Text="创建人 :" TextAlignment="Right" />
+            <TextBox Grid.Row="8" Grid.Column="5" Margin="8,5,8,5" Height="33"
+                     TextWrapping="Wrap"  
+                     IsReadOnly="True" VerticalAlignment="Center"
+                     Text="{Binding KeyVehicleLogbookEntity.CreateName}" />
+
+
+            <TextBlock Grid.Row="9" Grid.Column="1" VerticalAlignment="Center"
+                        Text="创建时间 :" TextAlignment="Right" />
+            <xctk:DateTimePicker Grid.Row="9" Grid.Column="2"  IsReadOnly="{Binding IsTitleReadOnly}"
+                                 Margin="8 8 8 8" Format="Custom" FormatString="yyyy-MM-dd"
+                                  AutoCloseCalendar="True" TextAlignment="Left"
+                                  TimePickerVisibility ="Collapsed" 
+                                 VerticalAlignment="Stretch"                               
+                                 Value="{Binding KeyVehicleLogbookEntity.CreateTime}" />
+
+
+
+            <!--<TextBlock Grid.Row="100" Grid.Column="1" VerticalAlignment="Center"
+                        Text="创建单位 :" TextAlignment="Right" />
+            <TextBox Grid.Row="100" Grid.Column="2" Margin="8,12,8,12" Height="33"
+                     TextWrapping="Wrap"  
+                     IsReadOnly="True" VerticalAlignment="Center"
+                     Text="{Binding KeyVehicleLogbookEntity.OwnDepartmentName}" />-->
+
+            <TextBlock Foreground="Red" Margin="4,10,10,10" Text="*" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="1" />
+            <TextBlock Foreground="Red" Margin="4,10,10,10" Text="*" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="6" Grid.Row="1" />
+            <TextBlock Foreground="Red" Margin="4,10,10,10" Text="*" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="2" />
+            <TextBlock Foreground="Red" Margin="4,10,10,10" Text="*" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="6" Grid.Row="2" />
+        </Grid>
+    </ScrollViewer>
+</UserControl>

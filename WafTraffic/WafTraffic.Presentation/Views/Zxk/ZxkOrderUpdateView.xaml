@@ -1,0 +1,175 @@
+<UserControl x:Class="WafTraffic.Presentation.Views.ZxkOrderUpdateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:LoadingMask;assembly=WpfLoadingMask"
+             d:DesignHeight="1024"
+             d:DesignWidth="784"
+             FontFamily="Microsoft YaHei"
+             FontSize="15"
+             mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+        <StackPanel Orientation="Vertical">
+            <Grid x:Name="printArea" Width="898">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="65" />
+                <ColumnDefinition Width="193" />
+                <ColumnDefinition Width="350" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="160" />
+                </Grid.RowDefinitions>
+
+            <TextBlock Margin="0,17,0,24" Text="创建人 :" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" />
+            <TextBox Grid.Column="2" Height="33" IsReadOnly="True" Margin="8,13,1,14" Text="{Binding PunishCaseEntity.CreateName}" VerticalAlignment="Center" Grid.Row="1" />
+            <TextBlock Margin="0,19,0,22" Text="单位 :" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" />
+            <TextBox Grid.Column="2" Height="33" IsReadOnly="True" Margin="8,15,1,12" Text="{Binding PunishCaseEntity.OwnDepartmentName}" VerticalAlignment="Center" Grid.Row="2" />
+
+            <TextBlock Margin="0,21,0,19" Text="时间 :" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" />
+            <DatePicker BorderThickness="1" FontSize="15" Height="34" HorizontalAlignment="Left" Margin="8,13,0,0" Name="dpCaseTime" SelectedDate="{Binding PunishCaseEntity.CaseTime}" VerticalAlignment="Top" Width="341" Grid.Column="2" Grid.Row="3" />
+
+            <TextBlock Grid.Row="4"
+                   Grid.Column="1"
+                   VerticalAlignment="Center"
+                   Text="编号 :"
+                   TextAlignment="Right" Margin="0,17,0,23" />
+            <TextBox Grid.Row="4"
+                 Grid.Column="2"
+                 Margin="8,14,1,14"
+                 VerticalAlignment="Center"
+                 IsReadOnly="{Binding Path=IsBrowse}"
+                 MaxLength="45"
+                 Text="{Binding PunishCaseEntity.CaseIndex}" Height="33" />
+
+            <TextBlock Grid.Row="5"
+                   Grid.Column="1"
+                   VerticalAlignment="Center"
+                   Text="标题 :"
+                   TextAlignment="Right" Margin="0,17,0,23" />
+            <TextBox Grid.Row="5"
+                 Grid.Column="2"
+                 Margin="8,14,1,14"
+                 VerticalAlignment="Center"
+                 IsReadOnly="{Binding Path=IsBrowse}"
+                 MaxLength="70"
+                 Text="{Binding PunishCaseEntity.Title}" Height="33" />
+
+            <TextBlock Text="附件一:" Grid.Row="6" Grid.Column="1" TextAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox x:Name="tbAttachFileName" Margin="5 8 50 8" Text="{Binding PunishCaseEntity.AttachmentName}" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" 
+                 IsReadOnly="True" MaxLength="40" Height="33" />
+                    <Button Content="..." Foreground="DarkSlateBlue" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Right" Margin="8,8,8,8" x:Name="btnAttachmentName1Select" Width="30" Height="30"
+                Click="btnAttachmentNameSelect_Click" Visibility="{Binding CanUploadVisibal}" />
+                    <Button Content="下载" Foreground="DarkSlateBlue" FontSize="12" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Right" Margin="8,8,8,8" x:Name="btnDownloadAttachment1" Width="35" Height="35"
+                Command="{Binding Path=DownloadCommand}" Visibility="{Binding CanDownloadVisibal}" />
+
+                    <TextBlock Text="附件二:" Grid.Row="7" Grid.Column="1" TextAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBox x:Name="tbAttachFileName2" Margin="5 8 50 8" Text="{Binding PunishCaseEntity.AttachmentName2}" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" 
+                 IsReadOnly="True" MaxLength="40" Height="33" />
+                    <Button Content="..." Foreground="DarkSlateBlue" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Right" Margin="8,8,8,8" x:Name="btnAttachmentName2Select" Width="30" Height="30"
+                Click="btnAttachmentNameSelect_Click2" Visibility="{Binding CanUploadVisibal}" />
+                    <Button Content="下载" Foreground="DarkSlateBlue" FontSize="12" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Right" Margin="8,8,8,8" x:Name="btnDownloadAttachment2" Width="35" Height="35"
+                Command="{Binding Path=DownloadCommand2}" Visibility="{Binding CanDownloadVisibal}" />
+
+            <TextBlock Grid.Row="8"
+                   Grid.Column="1"
+                   VerticalAlignment="Center"
+                   Text="校验人 :"
+                   TextAlignment="Right" Margin="0,17,0,23" />
+            <TextBox Grid.Row="8"
+                 Grid.Column="2"
+                 Margin="8,14,1,14"
+                 VerticalAlignment="Center"
+                 IsReadOnly="{Binding Path=IsBrowse}"
+                 MaxLength="18"
+                 Text="{Binding PunishCaseEntity.CheckName}" Height="33" />
+
+            <TextBlock Grid.Row="9"
+                   Grid.Column="1"
+                   VerticalAlignment="Center"
+                   Text="审核人 :"
+                   TextAlignment="Right" Margin="0,17,0,23" />
+            <TextBox Grid.Row="9"
+                 Grid.Column="2"
+                 Margin="8,14,1,14"
+                 VerticalAlignment="Center"
+                 IsReadOnly="{Binding Path=IsBrowse}"
+                 Text="{Binding PunishCaseEntity.AuditNumber}" Height="33" />
+
+
+
+            <TextBlock Foreground="Red" Margin="5,21,95,19" Text="*" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="3" />
+            <TextBlock Foreground="Red" Margin="5,17,95,23" Text="*" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="4" />
+            <TextBlock Foreground="Red" Margin="5,17,95,23" Text="*" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="5" />
+
+            <TextBlock Margin="0,64,0,76" Text="备注 :" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="10" Grid.Column="1" />
+            <TextBox Name="tbComments" Margin="5,7,5,0" Grid.Row="10" Grid.Column="2"  VerticalAlignment="Top" MinLines="5" MaxLines="10"
+                 Text="{Binding PunishCaseEntity.Comments}" BorderThickness="1" MaxLength="190" IsReadOnly="{Binding Path=IsBrowse}"
+                 TextWrapping="Wrap"  AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="137" />
+        </Grid>
+            <Grid Height="60">
+                <Button x:Name="btnSave"
+                Width="90"
+                Margin="40,10,220,0"
+                Command="{Binding Path=SaveCommand}"
+                Height="50">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_save.png" 
+                           Width="32" Height="32" />
+                            <TextBlock Text="保 存" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="btnCancel"
+                Width="90"
+                Margin="136,10,124,0"
+                Command="{Binding Path=CancelCommand}"
+                Height="50" >
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_cancel.png" 
+                           Width="32" Height="32" />
+                            <TextBlock Text="取 消" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+
+                <Button x:Name="btnBack" Command="{Binding Path=CancelCommand}" Height="50" Margin="136,10,124,0" Width="90" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="32" Source="pack://application:,,,/Resources/Images/icon_button_cancel.png" Width="32" />
+                        <TextBlock FontSize="15" Foreground="DarkSlateBlue" HorizontalAlignment="Center" Text="返 回" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
+<!--
+                <Button x:Name="btnPrint" Click="btnPrint_Click" Height="50" Margin="40,10,220,0" Width="90" Grid.Column="2" Grid.Row="10">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="32" Source="pack://application:,,,/Resources/Images/icon_button_print.png" Width="32" />
+                        <TextBlock FontSize="15" Foreground="DarkSlateBlue" HorizontalAlignment="Center" Text="打 印" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
+-->
+            </Grid>
+        </StackPanel>
+
+            <local:LoadingWait x:Name="_loading"  Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="10"
+                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

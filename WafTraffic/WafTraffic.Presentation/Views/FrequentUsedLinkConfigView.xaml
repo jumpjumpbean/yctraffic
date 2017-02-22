@@ -1,0 +1,143 @@
+<UserControl x:Class="WafTraffic.Presentation.Views.FrequentUsedLinkConfigView"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             FontFamily="Microsoft YaHei"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="350"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="350"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <TextBlock Text="ÍøÕ¾Ãû³Æ1:" Grid.Row="1" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.InlineText1}" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" 
+                  MaxLength="19" />
+        
+        <TextBlock Text="ÍøÖ·1:" Grid.Row="1" Grid.Column="4" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.NavigateUri1}" Grid.Row="1" Grid.Column="5" VerticalAlignment="Center" 
+                  MaxLength="140" />
+
+        <TextBlock Text="ÍøÕ¾Ãû³Æ2:" Grid.Row="2" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.InlineText2}" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" 
+                  MaxLength="19" />
+
+        <TextBlock Text="ÍøÖ·2:" Grid.Row="2" Grid.Column="4" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.NavigateUri2}" Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" 
+                  MaxLength="140" />
+
+        <TextBlock Text="ÍøÕ¾Ãû³Æ3:" Grid.Row="3" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.InlineText3}" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" 
+                  MaxLength="19" />
+
+        <TextBlock Text="ÍøÖ·3:" Grid.Row="3" Grid.Column="4" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.NavigateUri3}" Grid.Row="3" Grid.Column="5" VerticalAlignment="Center" 
+                 MaxLength="140" />
+
+        <TextBlock Text="ÍøÕ¾Ãû³Æ4:" Grid.Row="4" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.InlineText4}" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" 
+                  MaxLength="19" />
+
+        <TextBlock Text="ÍøÖ·4:" Grid.Row="4" Grid.Column="4" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.NavigateUri4}" Grid.Row="4" Grid.Column="5" VerticalAlignment="Center" 
+                  MaxLength="140" />
+
+        <TextBlock Text="ÍøÕ¾Ãû³Æ5:" Grid.Row="5" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.InlineText5}" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" 
+                  MaxLength="19" />
+
+        <TextBlock Text="ÍøÖ·5:" Grid.Row="5" Grid.Column="4" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.NavigateUri5}" Grid.Row="5" Grid.Column="5" VerticalAlignment="Center" 
+                 MaxLength="140" />
+
+        <TextBlock Text="ÍøÕ¾Ãû³Æ6:" Grid.Row="6" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.InlineText6}" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" 
+                 MaxLength="19" />
+
+        <TextBlock Text="ÍøÖ·6:" Grid.Row="6" Grid.Column="4" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.NavigateUri6}" Grid.Row="6" Grid.Column="5" VerticalAlignment="Center" 
+                 MaxLength="140" />
+
+        <TextBlock Text="ÍøÕ¾Ãû³Æ7:" Grid.Row="7" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.InlineText7}" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" 
+                 MaxLength="19" />
+
+        <TextBlock Text="ÍøÖ·7:" Grid.Row="7" Grid.Column="4" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.NavigateUri7}" Grid.Row="7" Grid.Column="5" VerticalAlignment="Center" 
+                 MaxLength="140" />
+
+        <TextBlock Text="ÍøÕ¾Ãû³Æ8:" Grid.Row="8" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.InlineText8}" Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" 
+                 MaxLength="19" />
+
+        <TextBlock Text="ÍøÖ·8:" Grid.Row="8" Grid.Column="4" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.NavigateUri8}" Grid.Row="8" Grid.Column="5" VerticalAlignment="Center" 
+                 MaxLength="140" />
+
+        <TextBlock Text="ÍøÕ¾Ãû³Æ9:" Grid.Row="9" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.InlineText9}" Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" 
+                 MaxLength="19" />
+
+        <TextBlock Text="ÍøÖ·9:" Grid.Row="9" Grid.Column="4" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.NavigateUri9}" Grid.Row="9" Grid.Column="5" VerticalAlignment="Center" 
+                 MaxLength="140" />
+
+        <TextBlock Text="ÍøÕ¾Ãû³Æ10:" Grid.Row="10" Grid.Column="1" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.InlineText10}" Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" 
+                 MaxLength="19" />
+
+        <TextBlock Text="ÍøÖ·10:" Grid.Row="10" Grid.Column="4" TextAlignment="Right"  VerticalAlignment="Center" />
+        <TextBox Margin="8" Text="{Binding FrequentlyUsedLink.NavigateUri10}" Grid.Row="10" Grid.Column="5" VerticalAlignment="Center" 
+                 MaxLength="140" />
+
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="5" HorizontalAlignment="Center">
+
+            <Button Name="btnSave" Command="{Binding Path=SaveCommand}" Width="90" Margin="20" >
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source ="pack://application:,,,/Resources/Images/icon_button_save.png" 
+                                            Width="22" Height="22" Margin="0,0,7,0" />
+                        <TextBlock Text="±£ ´æ" Foreground="DarkSlateBlue" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button Name="btnRetreat" Command="{Binding Path=RetreatCommand}" Width="90" Margin="20" >
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source ="pack://application:,,,/Resources/Images/icon_button_back.png" 
+                                            Width="22" Height="22" Margin="0,0,7,0" />
+                        <TextBlock Text="·µ »Ø" Foreground="DarkSlateBlue" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,136 @@
+﻿<UserControl x:Class="WafTraffic.Presentation.Views.HotLineDealView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:LoadingMask;assembly=WpfLoadingMask"
+             FontFamily="Microsoft YaHei"
+             mc:Ignorable="d" 
+             d:DesignHeight="1024" d:DesignWidth="968">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="550"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="200"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="90"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="创建时间:" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" TextAlignment="Right" />
+            <TextBlock Text="{Binding HotLineTask.CreateDate, Converter={StaticResource ShortTimeConverter}}" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="5" />
+
+
+            <TextBlock Text="负责科室:" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" TextAlignment="Right" />
+            <ComboBox x:Name="cbxDepartment" Grid.Row="2" Grid.Column="2" Margin="5" SelectedValuePath="Id" DisplayMemberPath="FullName" ItemsSource="{Binding DepartmentList}" SelectedValue="{Binding HotLineTask.OwnDepartmentId}"></ComboBox>
+            <TextBlock x:Name="tbDepartment" Text="{Binding HotLineTask.OwnDepartmentName}" Grid.Row="2" Grid.Column="2" Margin="5" VerticalAlignment="Center" TextAlignment="Left" Visibility="Collapsed" />
+            <TextBlock x:Name="tbDepartNeed" Text="*" Foreground="Red" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" TextAlignment="Center" />
+            <!--<TextBlock Text="{Binding HotLineTask.OwnDepartmentName}" Grid.Row="2" Grid.Column="2"  VerticalAlignment="Center" Margin="5" />-->
+
+            <TextBlock Text="到期时间:"  TextAlignment="Right" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" />
+            <xctk:DateTimePicker x:Name="_datetimePicker"
+                                 AutoCloseCalendar="True"
+                                 Grid.Row="3" Grid.Column="2"
+                                 Format="Custom" FormatString="yyyy-MM-dd HH:mm" 
+                                 Margin="5"
+                                 VerticalAlignment="Center"
+                                 IsReadOnly="False"                                 
+                                 Value="{Binding HotLineTask.DueDate}"
+                                />
+            <!--<TextBlock Text="{Binding HotLineTask.DueDate, Converter={StaticResource ShortTimeConverter}}" Grid.Row="3" Grid.Column="2"  VerticalAlignment="Center" Margin="5" />-->
+
+            <TextBlock Text="说明文字:"  TextAlignment="Right" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" />
+            <ScrollViewer  Grid.Row="4" Grid.Column="2"  VerticalScrollBarVisibility="Auto" Margin="8 0 0 0" HorizontalAlignment="Left">
+                <TextBlock Text="{Binding HotLineTask.Contents}" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" MaxWidth="530"  />
+            </ScrollViewer>
+            
+
+            <TextBlock Text="录入附件:"  TextAlignment="Right" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" />
+
+
+            <TextBlock Text="{Binding HotLineTask.ContentPictureName}" 
+                       Height="30" Grid.Row="5" Grid.Column="2"  Margin="8 6 6 1" />
+
+            <Button x:Name="ContentDownload"
+                Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left"
+                Width="33" Margin="3,8,3,8" Command="{Binding Path=DownloadCommand}"
+                Visibility="{Binding CanContentFileDownloadVisibal}"
+                Content="下载" Foreground="DarkSlateBlue" FontSize="12" Height="33" Click="ContentDownload_Click"/>
+            
+            <Button x:Name="btnReadAttachment1" 
+                Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left"
+                Width="33" Margin="43,5,3,5" Command="{Binding Path=DisplayCommand}"
+                Visibility="{Binding CanContentFileDownloadVisibal}"
+                Content="预览" Foreground="DarkSlateBlue" FontSize="12" Height="33" Click="ContentDownload_Click"/>
+
+            <TextBlock Text="处理意见:"  TextAlignment="Right" Grid.Row="6" Grid.Column="1"  VerticalAlignment="Center" />
+            <ScrollViewer Grid.Row="6" Grid.Column="2"  VerticalScrollBarVisibility="Auto" Margin="8 0 0 0" HorizontalAlignment="Left">
+                <TextBlock x:Name="tbSuggest" Text="{Binding HotLineTask.Suggest}" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"  MaxWidth="530" />
+            </ScrollViewer>
+            <TextBox Name="tbDealSuggest" Margin="5,6,5,0" Grid.Row="6" Grid.Column="2"  VerticalAlignment="Top" MinLines="3" MaxLines="10"
+                 Text="{Binding HotLineTask.Suggest}" BorderThickness="1"
+                 TextWrapping="Wrap"  AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="80" />
+
+            <TextBlock Text="处理结果:"  TextAlignment="Right" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" />
+            <TextBlock  x:Name="tbResult" Text="{Binding HotLineTask.Result}" TextWrapping="Wrap" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" Margin="5" />
+            <TextBox Name="tbDealResult" Margin="5,6,5,0" Grid.Row="7" Grid.Column="2"  VerticalAlignment="Top" MinLines="3" MaxLines="10"
+                 Text="{Binding HotLineTask.Result}" BorderThickness="1" MaxLength="200"
+                 TextWrapping="Wrap"  AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="80" />
+
+            <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                <Button x:Name="btnDeal" Visibility="Visible" Command="{Binding Path=SaveDealCommand}" Click="btnDeal_Click" Width="90" Margin="2">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_save.png" 
+                           Width="32" Height="32" />
+                            <TextBlock Text="处 理" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Name="btnSendDepartment" Visibility="Visible" Command="{Binding Path=SaveDealCommand}" Width="110" Margin="2" Click="btnSendDepartment_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_save.png" 
+                           Width="22" Height="22" Margin="0,0,7,0"/>
+                            <TextBlock Text="发给科室" Foreground="DarkSlateBlue" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Name="btnReplyDDZ"  Visibility="Visible" Command="{Binding Path=SaveDealCommand}" Width="120" Margin="2" Click="btnReplyDDZ_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_save.png" 
+                           Width="22" Height="22" Margin="0,0,7,0"/>
+                            <TextBlock Text="回复大队长" Foreground="DarkSlateBlue" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Name="btnRetreat"  Command="{Binding Path=RetreatCommand}" Width="90" Margin="2">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_back.png" 
+                           Width="22" Height="22" Margin="0,0,7,0"/>
+                            <TextBlock Text="返 回" Foreground="DarkSlateBlue" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <local:LoadingWait x:Name="_loading"  Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="9" Grid.RowSpan="15"
+                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

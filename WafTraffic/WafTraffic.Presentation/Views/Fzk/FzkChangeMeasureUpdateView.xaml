@@ -1,0 +1,206 @@
+<UserControl x:Class="WafTraffic.Presentation.Views.FzkChangeMeasureUpdateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:LoadingMask;assembly=WpfLoadingMask"
+             d:DesignHeight="1024"
+             d:DesignWidth="1207"
+             FontFamily="Microsoft YaHei"
+             FontSize="15"
+             mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="350" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="350" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Text="公安交通管理行政强制措施凭证" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="21" />
+
+            <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Text="当事人 :" TextAlignment="Right" />
+            <TextBox Grid.Row="1" Grid.Column="2" Margin="7" Height="33"
+                     TextWrapping="Wrap"  IsReadOnly="{Binding IsBaseInfoReadOnly}"
+                     VerticalAlignment="Center" MaxLength="9"
+                     Text="{Binding ChangeMeasureEntity.Name}" />
+
+            <TextBlock Grid.Row="1" Grid.Column="4" VerticalAlignment="Center"
+                        Text="地址 :" TextAlignment="Right" />
+            <TextBox Grid.Row="1" Grid.Column="5" Margin="7" Height="33"
+                     TextWrapping="Wrap"  IsReadOnly="{Binding IsBaseInfoReadOnly}"
+                      VerticalAlignment="Center" MaxLength="204"
+                     Text="{Binding ChangeMeasureEntity.Address}" />
+
+            <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"
+                        Text="电话 :" TextAlignment="Right" />
+            <TextBox Grid.Row="2" Grid.Column="2" Margin="7" Height="33"
+                     TextWrapping="Wrap"  IsReadOnly="{Binding IsBaseInfoReadOnly}"
+                     VerticalAlignment="Center" MaxLength="20"
+                     Text="{Binding ChangeMeasureEntity.Telephone}" />
+
+            <TextBlock Grid.Row="2" Grid.Column="4" VerticalAlignment="Center"
+                        Text="其他联系方式 :" TextAlignment="Right" />
+            <TextBox Grid.Row="2" Grid.Column="5" Margin="7" Height="33"
+                     TextWrapping="Wrap"  IsReadOnly="{Binding IsBaseInfoReadOnly}"
+                     VerticalAlignment="Center" MaxLength="20"
+                     Text="{Binding ChangeMeasureEntity.OtherPhone}" />
+
+            <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"
+                        Text="驾驶证 :" TextAlignment="Right" />
+            <TextBox Grid.Row="3" Grid.Column="2" Margin="7" Height="33"
+                     TextWrapping="Wrap"  IsReadOnly="{Binding IsBaseInfoReadOnly}"
+                     VerticalAlignment="Center" MaxLength="50"
+                     Text="{Binding ChangeMeasureEntity.DriverLicenseNo}" />
+
+            <TextBlock Grid.Row="3" Grid.Column="4" VerticalAlignment="Center"
+                        Text="驾证档案号 :" TextAlignment="Right" />
+            <TextBox Grid.Row="3" Grid.Column="5" Margin="7" Height="33"
+                     TextWrapping="Wrap"  IsReadOnly="{Binding IsBaseInfoReadOnly}"
+                     VerticalAlignment="Center" MaxLength="50"
+                     Text="{Binding ChangeMeasureEntity.DriverLicenseArchive}" />
+
+            <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"
+                        Text="车辆牌号 :" TextAlignment="Right" />
+            <TextBox Grid.Row="4" Grid.Column="2" Margin="7" Height="33"
+                     TextWrapping="Wrap"  IsReadOnly="{Binding IsBaseInfoReadOnly}"
+                     VerticalAlignment="Center" MaxLength="15"
+                     Text="{Binding ChangeMeasureEntity.VehicleNo}" />
+
+            <TextBlock Grid.Row="4" Grid.Column="4" VerticalAlignment="Center"
+                        Text="车辆类型 :" TextAlignment="Right" />
+            <TextBox Grid.Row="4" Grid.Column="5" Margin="7" Height="33"
+                     TextWrapping="Wrap"  IsReadOnly="{Binding IsBaseInfoReadOnly}"
+                     VerticalAlignment="Center" MaxLength="15"
+                     Text="{Binding ChangeMeasureEntity.VehicleType}" />
+
+            <TextBlock Grid.Column="1" Grid.Row="5"
+                   Text="处罚时间 :" TextAlignment="Right" VerticalAlignment="Center" />
+            <xctk:DateTimePicker Grid.Row="5" Grid.Column="2"  IsReadOnly="{Binding IsBaseInfoReadOnly}"
+                                 Margin="7" Format="Custom" FormatString="yyyy-MM-dd HH:mm"
+                                  AutoCloseCalendar="True" TextAlignment="Left"
+                                  TimePickerVisibility ="Collapsed"
+                                 VerticalAlignment="Stretch"                                
+                                 Value="{Binding ChangeMeasureEntity.PunishTime}" />
+            
+            <TextBlock Text="处罚地点 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="4" Grid.Row="5" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="7" IsReadOnly="{Binding IsBaseInfoReadOnly}"
+                 Text="{Binding ChangeMeasureEntity.PunishLocation}" VerticalAlignment="Center" Grid.Column="5" Grid.Row="5" />
+
+            <TextBlock Grid.Column="1" Grid.Row="6" Text="处罚原因 :" TextAlignment="Right" VerticalAlignment="Center" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Margin="7" IsReadOnly="{Binding IsBaseInfoReadOnly}"
+                 Text="{Binding ChangeMeasureEntity.PunishReason}" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="4" />
+
+            <TextBlock Text="采取强制措施:" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" TextAlignment="Right" />
+
+            <StackPanel Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="4" Orientation="Horizontal" >
+                <CheckBox  Margin="50 0 0 0"  VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding ChangeMeasureEntity.IsDetainVehicle}" />
+                <TextBlock Text="扣留机动车"  VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Margin="5 0 0 0" />
+                <CheckBox  Margin="50 0 0 0"  VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding ChangeMeasureEntity.IsDetainNonVehicle}" />
+                <TextBlock Text="扣留非机动车"  VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Margin="5 0 0 0" />
+                <CheckBox  Margin="50 0 0 0"  VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding ChangeMeasureEntity.IsDetainDriverLicense}" />
+                <TextBlock Text="扣留驾驶证"  VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Margin="5 0 0 0" />
+                <CheckBox  Margin="50 0 0 0"  VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding ChangeMeasureEntity.IsDetainIllegalDevice}" />
+                <TextBlock Text="收缴非法装置"  VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Margin="5 0 0 0" />
+            </StackPanel>
+
+            <TextBlock Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" Text="上报人 :" TextAlignment="Right" />
+            <TextBox Grid.Row="8" Grid.Column="2" Margin="7" Height="33"
+                     TextWrapping="Wrap"  
+                     IsReadOnly="True" VerticalAlignment="Center"
+                     Text="{Binding ChangeMeasureEntity.ReportPolice}" />
+
+            <TextBlock Grid.Row="8" Grid.Column="4" VerticalAlignment="Center"
+                        Text="备注 :" TextAlignment="Right" />
+            <TextBox Grid.Row="8" Grid.Column="5" Margin="7" Height="33"
+                     TextWrapping="Wrap"  IsReadOnly="{Binding IsBaseInfoReadOnly}"
+                     VerticalAlignment="Center"
+                     Text="{Binding ChangeMeasureEntity.Remake}" />
+
+            <TextBlock Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" Text="审核意见 :" TextAlignment="Right" />
+            <TextBox Grid.Row="9" Grid.Column="2" Margin="7" Height="33"
+                     TextWrapping="Wrap"  IsReadOnly="{Binding IsApproveInfoReadOnly}"
+                     VerticalAlignment="Center"
+                     Text="{Binding ChangeMeasureEntity.ApproveResult}" />
+
+            <TextBlock Grid.Row="9" Grid.Column="4" VerticalAlignment="Center"
+                        Text="审核人 :" TextAlignment="Right" />
+            <TextBox Grid.Row="9" Grid.Column="5" Margin="7" Height="33"
+                     TextWrapping="Wrap"  
+                     IsReadOnly="True" VerticalAlignment="Center"
+                     Text="{Binding ChangeMeasureEntity.ApprovalName}" />
+
+
+            <TextBlock Foreground="Red" Margin="4,20,40,20" Text="*" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="1" />
+            <TextBlock Foreground="Red" Margin="4,20,40,20" Text="*" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="3" />
+            <TextBlock Foreground="Red" Margin="4,20,40,20" Text="*" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="4" />
+            <TextBlock Foreground="Red" Margin="4,20,40,20" Text="*" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="5" />
+
+
+
+            <StackPanel Orientation="Horizontal"  Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="4"  HorizontalAlignment="Center">
+
+                <Button x:Name="btnApprove" Visibility="{Binding CanApproveVisibal}"
+                Width="90" Height="50"  Margin="8 0 8 0"
+                Command="{Binding Path=ApproveSaveCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_save.png" 
+                           Width="32" Height="32" />
+                            <TextBlock Text="审 核" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+
+                <Button x:Name="btnSave" Visibility="{Binding CanSaveVisibal}"
+                Width="90" Height="50"  Margin="8 0 8 0"
+                Command="{Binding Path=SaveCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_save.png" 
+                           Width="32" Height="32" />
+                            <TextBlock Text="保 存" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="btnCancel"
+                Width="90" Height="50" Margin="8 0 8 0"
+                Command="{Binding Path=CancelCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_cancel.png" 
+                           Width="32" Height="32" />
+                            <TextBlock Text="取 消" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>

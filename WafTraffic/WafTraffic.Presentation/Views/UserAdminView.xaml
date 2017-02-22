@@ -1,0 +1,77 @@
+<UserControl x:Class="WafTraffic.Presentation.Views.UserAdminView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:my="clr-namespace:CustomControlLibrary;assembly=CustomControlLibrary"
+            FontFamily="Microsoft YaHei"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="状态:" TextAlignment="Right" Width="40" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="Hidden"></TextBlock>
+                <TextBox x:Name="tbStatus" Width="120"  Margin="10 6 10 6" Visibility="Hidden"></TextBox>
+                <TextBlock Text="状态:" TextAlignment="Right" Width="40" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="Hidden"></TextBlock>
+                <TextBox x:Name="tbStatus1" Width="120"  Margin="10 6 10 6" Visibility="Hidden"></TextBox>
+                <TextBlock Text="状态:" TextAlignment="Right" Width="40" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="Hidden"></TextBlock>
+                <TextBox x:Name="tbStatus2" Width="120"  Margin="10 6 10 6" Visibility="Hidden"></TextBox>
+                <TextBlock Text="状态:" TextAlignment="Right" Width="40" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="Hidden"></TextBlock>
+                <TextBox x:Name="tbStatus3" Width="120"  Margin="10 6 10 6" Visibility="Hidden"></TextBox>
+                <Button Content="查询" Width="80" Margin="10 6 10 6" Visibility="Hidden"></Button>
+                <Button Command="{Binding Path=NewCommand}" Content="新增" Width="80" Margin="10 6 10 6"></Button>
+            </StackPanel>
+        </Grid>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <my:PagingDataGrid AutoGenerateColumns="False" SelectionMode="Single" Name="gridUserList" 
+                           PageSizeList="10,20,30,40" PageSize="20"
+                           SelectedItem="{Binding SelectedUser}"
+                           Background="Transparent"  
+                           RowBackground="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}" ColumnHeaderHeight="40"
+                           IsReadOnly="True"
+                           HorizontalGridLinesBrush="AliceBlue" VerticalGridLinesBrush="AliceBlue"
+                           AlternationCount="2" BorderThickness="1" BorderBrush="LightBlue" PagingChanged="gridUserList_PagingChanged">
+                <DataGrid.Columns>  
+                    
+                    <DataGridTextColumn Header="用户名" Binding="{Binding UserName}" />
+                    <DataGridTextColumn Header="用户编号" Binding="{Binding Code}" />
+                    <DataGridTextColumn Header="姓名" Binding="{Binding RealName}" />
+                    <DataGridTextColumn Header="部门" Width="100" Binding="{Binding DepartmentName}" />
+                    <DataGridCheckBoxColumn Header="是否有效" Width="100" Binding="{Binding Enabled}" />
+
+                    <DataGridTemplateColumn Header="">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Visibility="{Binding CanModify}">
+                                        <Hyperlink Command="{Binding DataContext.ModifyCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}" 
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}"> 修改 </Hyperlink>
+                                    </TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Visibility="{Binding CanDelete}">
+                                        <Hyperlink Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"                                            
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}"> 删除 </Hyperlink>
+                                    </TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+
+            </my:PagingDataGrid>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>

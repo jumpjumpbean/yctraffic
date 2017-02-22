@@ -1,0 +1,191 @@
+<UserControl x:Class="WafTraffic.Presentation.Views.SgkReleaseCarUpdateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:LoadingMask;assembly=WpfLoadingMask"
+             d:DesignHeight="1024"
+             d:DesignWidth="990"
+             FontFamily="Microsoft YaHei"
+             FontSize="15"
+             mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="340" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="340" />
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="110" />
+                <RowDefinition Height="110" />
+                <RowDefinition Height="110" />
+                <RowDefinition Height="55" />
+                <RowDefinition Height="55" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal"  Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="5" HorizontalAlignment="Center">
+
+                <Button x:Name="btnPrint" Visibility="{Binding CanPrintVisibal}"
+                Width="90" Height="50"  Margin="8 0 8 0"
+                Command="{Binding Path=PrintCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_print.png" 
+                           Width="32" Height="32" />
+                            <TextBlock Text="打 印" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+
+                <Button x:Name="btnApprove" Visibility="{Binding CanSaveVisibal}"
+                Width="90" Height="50"  Margin="8 0 8 0"
+                Command="{Binding Path=SaveCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_save.png" 
+                           Width="32" Height="32" />
+                            <TextBlock Text="保 存" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="btnCancel"
+                Width="90" Height="50" Margin="8 0 8 0"
+                Command="{Binding Path=CancelCommand}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source ="/Resources/Images/icon_button_cancel.png" 
+                           Width="32" Height="32" />
+                            <TextBlock Text="取 消" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <TextBlock Text="编号 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="1" Grid.Row="1" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="20" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding ReleaseCarEntity.IdNumber}" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+
+            <TextBlock Text="车辆号牌 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="1" Grid.Row="2" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="20" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding ReleaseCarEntity.PlateNumber}" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" />
+
+            <TextBlock Grid.Column="4" Grid.Row="2"
+                   Text="颜色 :" TextAlignment="Right" VerticalAlignment="Center" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="20" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding ReleaseCarEntity.VehicleColor}" VerticalAlignment="Center" Grid.Column="5" Grid.Row="2" />
+
+            <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"
+                        Text="停车时间 :" TextAlignment="Right" />
+            <xctk:DateTimePicker Grid.Row="3" Grid.Column="2"  IsReadOnly="{Binding IsTitleReadOnly}"
+                                 Margin="8 8 8 8" Format="Custom" FormatString="yyyy-MM-dd"
+                                  AutoCloseCalendar="True" TextAlignment="Left"
+                                  TimePickerVisibility ="Collapsed"
+                                 VerticalAlignment="Stretch"                                
+                                 Value="{Binding ReleaseCarEntity.ParkTime}" />
+
+
+            <TextBlock Grid.Row="3" Grid.Column="4" VerticalAlignment="Center"
+                        Text="放车时间 :" TextAlignment="Right" />
+            <xctk:DateTimePicker Grid.Row="3" Grid.Column="5"  IsReadOnly="{Binding IsTitleReadOnly}"
+                                 Margin="8 8 8 8" Format="Custom" FormatString="yyyy-MM-dd"
+                                  AutoCloseCalendar="True" TextAlignment="Left"
+                                  TimePickerVisibility ="Collapsed"
+                                 VerticalAlignment="Stretch"                                
+                                 Value="{Binding ReleaseCarEntity.ReleaseTime}" />
+
+
+            <TextBlock Text="送车单位 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="1" Grid.Row="4" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="30" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding ReleaseCarEntity.SendCarDepartment}" VerticalAlignment="Center" Grid.Column="2" Grid.Row="4" />
+
+            <TextBlock Text="送车人 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="4" Grid.Row="4" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="20" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding ReleaseCarEntity.SendCarPerson}" VerticalAlignment="Center" Grid.Column="5" Grid.Row="4" />
+
+            <TextBlock Text="当事人 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="1" Grid.Row="5" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="20" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding ReleaseCarEntity.PersonSignature}" VerticalAlignment="Center" Grid.Column="2" Grid.Row="5" />
+
+            <TextBlock Text="事故科长签字 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="4" Grid.Row="5" />
+            <Button Command="{Binding Path=ChargeSignCommand}" Content="签名" Grid.Row="5"  Grid.Column="6" Height="33" HorizontalAlignment="Center"  
+                    Name="btnSgkChargeSign" Width="42" Visibility="{Binding CanChargeSign1Visible}" Click="btnSgkChargeSign_Click" />
+            <Image Grid.Row="5" Height="100" Width="320" HorizontalAlignment="Center" x:Name="imgSubLeaderSignImg" Stretch="Fill" VerticalAlignment="Center" 
+                       Source="{Binding SgkChargeSignImg}" Grid.Column="5" 
+                   Visibility="{Binding CanChargeInfoVisible}" />
+            
+
+            <TextBlock Text="是否缴纳救援费 :" TextAlignment="Right" VerticalAlignment="Top" 
+                       Grid.Column="1" Grid.Row="6" Margin="8 22 8 0" />
+            <ComboBox Grid.Row="6" Grid.Column="2" Margin="8 17 8 0" SelectedValue="{Binding ReleaseCarEntity.IsPaidFee}" HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Top" SelectedValuePath="Content" Height="33" Name="cGender" IsEnabled="{Binding CanDepartEnable}">
+                <ComboBoxItem IsSelected="True" Content="否" ></ComboBoxItem>
+                <ComboBoxItem Content="是" ></ComboBoxItem>
+            </ComboBox>
+
+            <TextBlock Text="备注 :" TextAlignment="Right" VerticalAlignment="Top"  Grid.Column="1" Grid.Row="6" Margin="8 75 8 0" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8 55 8 0" MaxLength="20" IsReadOnly="{Binding IsTitleReadOnly}"
+                 Text="{Binding ReleaseCarEntity.Remark}" VerticalAlignment="Center" Grid.Column="2" Grid.Row="6" />
+
+            <TextBlock Text="救援负责人签字 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="4" Grid.Row="6" />
+            <Button Command="{Binding Path=ChargeSignCommand}" Content="签名" Grid.Row="6"  Grid.Column="6" Height="33" HorizontalAlignment="Center"  
+                    Name="btnRescueChargeSign" Width="42" Visibility="{Binding CanChargeSign2Visible}" Click="btnRescueChargeSign_Click" />
+            <Image Grid.Row="6" Height="100" Width="320" HorizontalAlignment="Center" x:Name="imgRescueLeaderSignImg" Stretch="Fill" VerticalAlignment="Center" 
+                       Source="{Binding RescueChargeSignImg}" Grid.Column="5" 
+                   Visibility="{Binding CanChargeInfoVisible}" />
+
+            <TextBlock Text="审批结果 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="1" Grid.Row="7" />
+            <TextBox BorderBrush="{StaticResource {x:Static SystemColors.HighlightBrushKey}}" 
+                 BorderThickness="1" FontSize="15" Height="33" Margin="8,5,8,5" MaxLength="20" IsReadOnly="{Binding IsApprovalInfoReadOnly}"
+                 Text="{Binding ReleaseCarEntity.ApproveResult}" VerticalAlignment="Center" Grid.Column="2" Grid.Row="7" />
+
+
+            <TextBlock Text="分管副大队签字 :" TextAlignment="Right" VerticalAlignment="Center" 
+                       Grid.Column="4" Grid.Row="7" />
+            <Button Command="{Binding Path=ChargeSignCommand}" Content="签名" Grid.Row="7"  Grid.Column="6" Height="33" HorizontalAlignment="Center"  
+                    Name="btnFDDSign" Width="42" Visibility="{Binding CanChargeSign3Visible}" Click="btnFDDSign_Click" />
+            <Image Grid.Row="7" Height="100" Width="320" HorizontalAlignment="Center" x:Name="imgFDDSignImg" Stretch="Fill" VerticalAlignment="Center" 
+                       Source="{Binding FDDSignImg}" Grid.Column="5" 
+                   Visibility="{Binding CanChargeInfoVisible}" />
+
+            <TextBlock Text="申请流程：&#10;    事故科内勤-->李伟审批-->邢庆胜审核-->分管副大队长审批" TextAlignment="Left" VerticalAlignment="Top" 
+                       Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="9" Foreground="Gray" FontSize="13" HorizontalAlignment="Center" Margin="8,0,8,0"/>
+
+            <TextBlock Foreground="Red" Margin="4,10,10,10" Text="*" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="1" />
+            <TextBlock Foreground="Red" Margin="4,10,10,10" Text="*" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="2" />
+
+            <local:LoadingWait x:Name="_loading"  Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7" Grid.RowSpan="14"
+                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>

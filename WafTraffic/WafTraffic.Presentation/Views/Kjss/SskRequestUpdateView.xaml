@@ -1,0 +1,137 @@
+<UserControl x:Class="WafTraffic.Presentation.Views.SskRequestUpdateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:LoadingMask;assembly=WpfLoadingMask"
+             d:DesignHeight="850"
+             d:DesignWidth="1068"
+             FontFamily="Microsoft YaHei"
+             mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Height="821" Width="898">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="275" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="275" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="160" />
+                <RowDefinition Height="200*" />
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="2"
+                 Grid.Column="2"
+                 Margin="6,13,0,13"
+                 VerticalAlignment="Center"
+                 IsReadOnly="{Binding IsBaseInfoReadOnly}"
+                 Text="{Binding EquipmentRequestEntity.EquipmentName}" Height="33" MaxLength="50" HorizontalAlignment="Left" Width="258" />
+            <TextBox Grid.Row="5"
+                 Grid.Column="2"
+                 Margin="6,10,11,10"
+                 VerticalAlignment="Center"
+                 IsReadOnly="{Binding IsBaseInfoReadOnly}"
+                 Text="{Binding EquipmentRequestEntity.EquipmentUse}" Height="140" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" MaxLength="120" />
+            <Button x:Name="btnSubmit"
+                Grid.Row="6"
+                Grid.Column="2" Margin="109,289,66,77"
+                Command="{Binding Path=SubmitCommand}"
+                Height="50"
+                Visibility="{Binding Path=IsSubmitButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="100">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source ="/Resources/Images/icon_button_save.png" 
+                           Width="32" Height="32" />
+                        <TextBlock Text="提 交" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button x:Name="btnCancel"
+                Grid.Row="6"
+                Grid.Column="2" Margin="227,289,48,77"
+                Command="{Binding Path=CancelCommand}"
+                Height="50" Width="100" Grid.ColumnSpan="2">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source ="/Resources/Images/icon_button_back.png" 
+                           Width="32" Height="32" />
+                        <TextBlock Text="取 消" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Height="33" HorizontalAlignment="Center" Margin="16,67,4,60" Text="设备用途 :" TextAlignment="Right" VerticalAlignment="Center" Width="80" Grid.Row="5" Grid.Column="1" />
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Height="33" HorizontalAlignment="Center" Margin="16,14,4,13" Text="设备名称 :" TextAlignment="Right" VerticalAlignment="Center" Width="80" Grid.Column="1" Grid.Row="2" />
+            <Button x:Name="btnReject" Command="{Binding Path=RejectCommand}" Height="50" Margin="60,289,195,77" Grid.Column="3" Grid.Row="6"
+                    Visibility="{Binding Path=IsRejectButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="100" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="32" Source="/Resources/Images/icon_button_cancel.png" Width="32" />
+                    <TextBlock FontSize="15" Foreground="DarkSlateBlue" HorizontalAlignment="Center" Text="退 回" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Height="33" HorizontalAlignment="Center" Margin="16,14,4,13" Text="申请时间 :" TextAlignment="Right" VerticalAlignment="Center" Width="80" Grid.Column="1" Grid.Row="1" />
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Height="33" HorizontalAlignment="Center" Margin="14,13,6,14" Text="申请单位 :" TextAlignment="Right" VerticalAlignment="Center" Width="80" Grid.Column="3" Grid.Row="1" />
+            <ComboBox DisplayMemberPath="FullName" HorizontalAlignment="Left" IsEnabled="{Binding Path=IsBaseInfoEnabled}" ItemsSource="{Binding DepartmentList}" Margin="9,12,0,14" Name="cmbDept" SelectedValue="{Binding EquipmentRequestEntity.RequestDept}" SelectedValuePath="Id" VerticalAlignment="Center" Width="258" Grid.Column="4" Grid.Row="1" Height="33" />
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Height="33" HorizontalAlignment="Center" Margin="14,14,6,13" Text="经费来源 :" TextAlignment="Right" VerticalAlignment="Center" Width="80" Grid.Column="3" Grid.Row="2" />
+            <TextBox Height="33" HorizontalAlignment="Left" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}" Margin="9,14,0,13" MaxLength="50" Text="{Binding EquipmentRequestEntity.OutlayFrom}" VerticalAlignment="Center" Width="258" Grid.Column="4" Grid.Row="2" />
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Height="33" HorizontalAlignment="Center" Margin="16,16,4,11" Text="管理人员 :" TextAlignment="Right" VerticalAlignment="Center" Width="80" Grid.Column="1" Grid.Row="3" />
+            <TextBox Height="33" HorizontalAlignment="Left" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}" Margin="6,13,0,14" MaxLength="20" Text="{Binding EquipmentRequestEntity.Administrator}" VerticalAlignment="Center" Width="258" Grid.Column="2" Grid.Row="3" />
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Height="33" HorizontalAlignment="Center" Margin="14,13,6,14" Text="申请人员 :" TextAlignment="Right" VerticalAlignment="Center" Width="80" Grid.Column="3" Grid.Row="3" />
+            <TextBox Height="33" HorizontalAlignment="Left" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}" Margin="9,12,0,15" MaxLength="20" Text="{Binding EquipmentRequestEntity.Applicant}" VerticalAlignment="Center" Width="258" Grid.Column="4" Grid.Row="3" />
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Height="33" HorizontalAlignment="Center" Margin="16,16,4,11" Text="申请类型 :" TextAlignment="Right" VerticalAlignment="Center" Width="80" Grid.Column="1" Grid.Row="4" />
+            <ComboBox DisplayMemberPath="WorkflowStatusPhrase" HorizontalAlignment="Left" IsEnabled="{Binding Path=IsBaseInfoEnabled}" ItemsSource="{Binding RequestTypeList}" Margin="6,16,0,11" Name="cmbReqType" SelectedValue="{Binding EquipmentRequestEntity.RequestType}" SelectedValuePath="WorkflowStatusId" VerticalAlignment="Center" Width="258" Grid.Column="2" Grid.Row="4" Height="33" />
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Height="33" HorizontalAlignment="Center" Margin="14,67,6,60" Text="备注 :" TextAlignment="Right" VerticalAlignment="Center" Width="80" Grid.Column="3" Grid.Row="5" />
+            <TextBox AcceptsReturn="True" Height="140" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}" Margin="9,10,8,10" MaxLength="200" Text="{Binding EquipmentRequestEntity.Node1Comment}" TextWrapping="Wrap" VerticalAlignment="Center" VerticalScrollBarVisibility="Visible" Grid.Column="4" Grid.Row="5" />
+            <xctk:DateTimePicker AutoCloseCalendar="True" Format="Custom" FormatString="yyyy-MM-dd" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}" Margin="6,12,11,16" Name="tbRequestTime" Value="{Binding EquipmentRequestEntity.RequestTime}" VerticalAlignment="Center" Height="33" Grid.Column="2" Grid.Row="1" FontSize="15" />
+            <!--
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Grid.Row="4" Height="33" HorizontalAlignment="Center" Margin="14,16,6,11" Text="分管领导 :" TextAlignment="Right" VerticalAlignment="Center" Width="80" Grid.Column="3" />
+            <ComboBox Grid.Row="4" Height="33" HorizontalAlignment="Left" IsEnabled="{Binding Path=IsBaseInfoEnabled}" ItemsSource="{Binding Path=LeaderList}" Margin="9,16,0,11" Name="cmbLeaderGroup" SelectedValue="{Binding EquipmentRequestEntity.SubLeaderId}" SelectedValuePath="Id" VerticalAlignment="Center" Width="258" Grid.Column="4" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding RealName}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            -->
+            
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Height="33" HorizontalAlignment="Center" Margin="5,81,4,302" Text="分管领导意见 :" TextAlignment="Right" VerticalAlignment="Center" Width="111" Grid.Column="1" Grid.Row="6" Visibility="{Binding Path=IsSubLeaderInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <TextBox Height="33" HorizontalAlignment="Left" IsReadOnly="{Binding Path=IsSubLeaderInfoReadOnly}" Margin="6,81,0,302" MaxLength="100" Text="{Binding EquipmentRequestEntity.Node2Comment}" VerticalAlignment="Center" Width="258" Grid.Column="2" Grid.Row="6" Visibility="{Binding Path=IsSubLeaderInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Height="33" HorizontalAlignment="Center" Margin="18,27,22,356" Text="期限时间 :" TextAlignment="Right" VerticalAlignment="Center" Width="80" Grid.Column="1" Grid.Row="6" Visibility="{Binding Path=IsSubLeaderInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <xctk:DateTimePicker AutoCloseCalendar="True" FontSize="15" Format="Custom" FormatString="yyyy-MM-dd" Grid.Column="2" Height="33" IsReadOnly="{Binding Path=IsSubLeaderInfoReadOnly}" Margin="6,27,11,356" Name="dtDeadline" Value="{Binding EquipmentRequestEntity.Deadline}" VerticalAlignment="Center" Grid.Row="6" Visibility="{Binding Path=IsSubLeaderInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Grid.Row="6" Height="33" HorizontalAlignment="Center" Margin="5,81,4,302" Text="分管领导签名 :" TextAlignment="Right" VerticalAlignment="Center" Visibility="{Binding Path=IsSubLeaderInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="111" Grid.Column="3" />
+            <Button Command="{Binding Path=SubLeaderSignCommand}" Content="签名" Grid.Row="6" Height="33" HorizontalAlignment="Left" Margin="8,81,0,302" Name="btnSubLeaderSignSelect" Width="42" Grid.Column="5" Visibility="{Binding Path=IsSubLeaderSignButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <Image Grid.Row="6" Height="64" Width="258" HorizontalAlignment="Left" x:Name="imgSubLeaderSignImg" Stretch="Fill" VerticalAlignment="Top" 
+                       Source="{Binding Path=SubLeaderSignImg}" Grid.Column="4" Margin="9,81,0,0" Visibility="{Binding Path=IsSubLeaderInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Grid.Row="6" Height="33" HorizontalAlignment="Center" Margin="8,156,4,227" Text="大队长意见 :" TextAlignment="Right" VerticalAlignment="Center" Visibility="{Binding Path=IsDdzInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="88" Grid.Column="1" />
+            <TextBox Grid.Row="6" Height="33" HorizontalAlignment="Left" IsReadOnly="{Binding Path=IsDdzInfoReadOnly}" Margin="6,154,0,229" MaxLength="100" Text="{Binding EquipmentRequestEntity.Node3Comment}" VerticalAlignment="Center" Visibility="{Binding Path=IsDdzInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="258" Grid.Column="2" />
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Grid.Row="6" Height="33" HorizontalAlignment="Center" Margin="5,154,4,229" Text="大队长签名 :" TextAlignment="Right" VerticalAlignment="Center" Visibility="{Binding Path=IsDdzInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="111" Grid.Column="3" />
+            <Button Command="{Binding Path=DdzSignCommand}" Content="签名" Grid.Column="5" Grid.Row="6" Height="33" HorizontalAlignment="Left" Margin="8,154,0,229" x:Name="btnDdzSignSelect" Visibility="{Binding Path=IsDdzSignButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="42" />
+            <Image Grid.Column="4" Grid.Row="6" Height="64" HorizontalAlignment="Left" Margin="9,154,0,0" Name="imgDdzSignImg" Source="{Binding Path=DdzSignImg}" Stretch="Fill" VerticalAlignment="Top" Visibility="{Binding Path=IsDdzInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="258" />
+            
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Grid.Row="6" Height="33" HorizontalAlignment="Center" Margin="18,228,14,155" Text="执行结果 :" TextAlignment="Right" VerticalAlignment="Center" Visibility="{Binding Path=IsSskInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="88" Grid.Column="1" />
+            <TextBox Grid.Column="2" Grid.Row="6" Height="33" HorizontalAlignment="Left" IsReadOnly="{Binding Path=IsSskInfoReadOnly}" Margin="6,228,0,155" MaxLength="100" Text="{Binding EquipmentRequestEntity.Node4Comment}" VerticalAlignment="Center" Visibility="{Binding Path=IsSskInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="258" />
+            <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Grid.Row="6" Height="33" HorizontalAlignment="Center" Margin="36,233,4,150" Text="完成时间:" TextAlignment="Right" VerticalAlignment="Center" Visibility="{Binding Path=IsSskInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="80" Grid.Column="3" />
+            <xctk:DateTimePicker AutoCloseCalendar="True" FontSize="15" Format="Custom" FormatString="yyyy-MM-dd" Grid.Column="4" Grid.Row="6" Height="33" IsReadOnly="{Binding Path=IsSskInfoReadOnly}" Margin="9,228,8,155" Name="dtCompleteTime" Value="{Binding EquipmentRequestEntity.CompleteTime}" VerticalAlignment="Center" Visibility="{Binding Path=IsSskInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <!--
+            <Button Command="{Binding Path=SuperviseCommand}" Grid.Row="6" Height="50" Margin="88,137,67,229" Name="btnSupervise" Visibility="{Binding Path=IsSuperviseButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}" Grid.Column="4" Width="120">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="32" Source="/Resources/Images/icon_button_supervise.png" Width="32" />
+                    <TextBlock FontSize="15" Foreground="DarkSlateBlue" HorizontalAlignment="Center" Text="申请督办" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            -->
+            <local:LoadingWait x:Name="_loading"  Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7" Grid.RowSpan="14"
+                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>

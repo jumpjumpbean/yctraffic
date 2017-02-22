@@ -2,3 +2,11 @@
 .waf-*
 .waf3-*
 .lock-*
+
+Output
+bin
+obj
+Debug
+Release
+.svn
+

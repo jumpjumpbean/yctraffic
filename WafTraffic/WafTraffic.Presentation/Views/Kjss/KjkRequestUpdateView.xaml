@@ -1,0 +1,437 @@
+<UserControl x:Class="WafTraffic.Presentation.Views.KjkRequestUpdateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:LoadingMask;assembly=WpfLoadingMask"
+             d:DesignHeight="850"
+             d:DesignWidth="1068"
+             FontFamily="Microsoft YaHei"
+             mc:Ignorable="d">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <StackPanel Orientation="Vertical">
+                <Grid x:Name="printArea" Height="600" Width="898">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="275" />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="275" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="260" />
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="170" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal"  
+                       HorizontalAlignment="Center" Margin="14,13,6,14" Text="申请单位 :" TextAlignment="Right" 
+                       VerticalAlignment="Center"  Grid.Column="1" Grid.Row="1" />
+                    <ComboBox DisplayMemberPath="FullName" HorizontalAlignment="Left" IsEnabled="{Binding Path=IsBaseInfoEnabled}" 
+                      ItemsSource="{Binding DepartmentList}" Margin="9,5,0,5" Name="cmbDept" 
+                      SelectedValue="{Binding EquipmentRequestEntity.RequestDept}" SelectedValuePath="Id" 
+                      VerticalAlignment="Center" Width="258" Grid.Column="2" Grid.Row="1" Height="30" />
+
+
+                    <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" 
+                       HorizontalAlignment="Center" Margin="16,5,4,5" Text="申请日期 :" TextAlignment="Right" 
+                       VerticalAlignment="Center" Grid.Column="3" Grid.Row="1" />
+
+                    <xctk:DateTimePicker AutoCloseCalendar="True" Format="Custom" FormatString="yyyy-MM-dd" 
+                                 IsReadOnly="{Binding Path=IsBaseInfoReadOnly}" Margin="6,5,11,5" Name="tbRequestTime" 
+                                 Value="{Binding EquipmentRequestEntity.RequestTime}" VerticalAlignment="Center" 
+                                 Height="30" Grid.Column="4" Grid.Row="1" FontSize="15" />
+
+                    <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" 
+                       HorizontalAlignment="Center" Margin="14,5,6,5" Text="申请人员 :" TextAlignment="Right" 
+                       VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" />
+                    <TextBox Height="30" HorizontalAlignment="Left" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}" 
+                     Margin="9,5,0,5" MaxLength="20" Text="{Binding EquipmentRequestEntity.Applicant}" 
+                     VerticalAlignment="Center" Width="258" Grid.Column="2" Grid.Row="2" />
+
+
+                    <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" 
+                       HorizontalAlignment="Center" Margin="16,5,4,5" Text="申请类型 :" TextAlignment="Right" 
+                       VerticalAlignment="Center"  Grid.Column="3" Grid.Row="2" />
+                    <ComboBox DisplayMemberPath="WorkflowStatusPhrase" HorizontalAlignment="Left" IsEnabled="{Binding Path=IsBaseInfoEnabled}" 
+                      ItemsSource="{Binding RequestTypeList}" Margin="6,5,0,5" Name="cmbReqType" 
+                      SelectedValue="{Binding EquipmentRequestEntity.RequestType}" SelectedValuePath="WorkflowStatusId" 
+                      VerticalAlignment="Center" Width="258" Grid.Column="4" Grid.Row="2" Height="30" />
+
+
+
+                    <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" 
+                       HorizontalAlignment="Center" Margin="16,5,4,5" Text="申请物品详单 :" TextAlignment="Right" 
+                       VerticalAlignment="Center"  Grid.Column="1" Grid.Row="3" />
+
+
+
+                    <Grid Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Margin="30 0 20 0" ShowGridLines="False">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="280"/>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Grid Grid.Column="0" Grid.Row="0">
+                            <Border BorderBrush="Black" BorderThickness="1"></Border>
+                            <TextBlock Text="序号" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="0">
+                            <Border BorderBrush="Black" BorderThickness="0,1,1,1"></Border>
+                            <TextBlock Text="物品" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Border BorderBrush="Black" BorderThickness="0,1,1,1"></Border>
+                            <TextBlock Text="用途" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="3">
+                            <Border BorderBrush="Black" BorderThickness="0,1,1,1"></Border>
+                            <TextBlock Text="单价(元)" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="4">
+                            <Border BorderBrush="Black" BorderThickness="0,1,1,1"></Border>
+                            <TextBlock Text="数量" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="5">
+                            <Border BorderBrush="Black" BorderThickness="0,1,1,1"></Border>
+                            <TextBlock Text="小计" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+
+
+
+                        <!--Row 1-->
+                        <Grid Grid.Column="0" Grid.Row="1">
+                            <Border BorderBrush="Black" BorderThickness="1,0,1,1"></Border>
+                            <TextBlock Text="1" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.Item1}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="1">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemUse1}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="1">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemPrice1}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="4" Grid.Row="1">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemAmount1}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="5" Grid.Row="1">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBlock Text="{Binding SubTotal1}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+
+
+                        <!--Row 2-->
+                        <Grid Grid.Column="0" Grid.Row="2">
+                            <Border BorderBrush="Black" BorderThickness="1,0,1,1"></Border>
+                            <TextBlock Text="2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="2">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.Item2}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="2">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemUse2}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="2">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemPrice2}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="4" Grid.Row="2">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemAmount2}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="5" Grid.Row="2">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBlock Text="{Binding SubTotal2}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+
+                        <!--Row 3-->
+                        <Grid Grid.Column="0" Grid.Row="3">
+                            <Border BorderBrush="Black" BorderThickness="1,0,1,1"></Border>
+                            <TextBlock Text="3" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="3">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.Item3}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="3">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemUse3}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="3">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemPrice3}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="4" Grid.Row="3">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemAmount3}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="5" Grid.Row="3">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBlock Text="{Binding SubTotal3}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+
+                        <!--Row 4-->
+                        <Grid Grid.Column="0" Grid.Row="4">
+                            <Border BorderBrush="Black" BorderThickness="1,0,1,1"></Border>
+                            <TextBlock Text="4" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="4">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.Item4}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="4">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemUse4}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="4">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemPrice4}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="4" Grid.Row="4">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemAmount4}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="5" Grid.Row="4">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBlock Text="{Binding SubTotal4}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+
+                        <!--Row 5-->
+                        <Grid Grid.Column="0" Grid.Row="5">
+                            <Border BorderBrush="Black" BorderThickness="1,0,1,1"></Border>
+                            <TextBlock Text="5" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="5">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.Item5}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="5">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemUse5}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="5">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemPrice5}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="4" Grid.Row="5">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemAmount5}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="5" Grid.Row="5">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBlock Text="{Binding SubTotal5}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+
+                        <!--Row 6-->
+                        <Grid Grid.Column="0" Grid.Row="6">
+                            <Border BorderBrush="Black" BorderThickness="1,0,1,1"></Border>
+                            <TextBlock Text="6" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="6">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.Item6}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="6">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemUse6}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="6">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemPrice6}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="4" Grid.Row="6">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemAmount6}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="5" Grid.Row="6">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBlock Text="{Binding SubTotal6}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+
+                        <!--Row 7-->
+                        <Grid Grid.Column="0" Grid.Row="7">
+                            <Border BorderBrush="Black" BorderThickness="1,0,1,1"></Border>
+                            <TextBlock Text="7" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="7">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.Item7}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="7">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemUse7}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="7">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemPrice7}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="4" Grid.Row="7">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBox Text="{Binding EquipmentRequestEntity.ItemAmount7}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="1" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}"></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="5" Grid.Row="7">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBlock Text="{Binding SubTotal7}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+
+                        <!--Row 8-->
+                        <Grid Grid.Column="0" Grid.Row="8">
+                            <Border BorderBrush="Black" BorderThickness="1,0,0,1"></Border>
+                        </Grid>
+                        <Grid Grid.Column="1" Grid.Row="8">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBlock Text="总计" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.Row="8">
+                            <Border BorderBrush="Black" BorderThickness="0,0,0,1"></Border>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="8">
+                            <Border BorderBrush="Black" BorderThickness="0,0,0,1"></Border>
+                        </Grid>
+                        <Grid Grid.Column="4" Grid.Row="8">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                        </Grid>
+                        <Grid Grid.Column="5" Grid.Row="8">
+                            <Border BorderBrush="Black" BorderThickness="0,0,1,1"></Border>
+                            <TextBlock Text="{Binding GrandTotal}" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
+                        </Grid>
+
+                    </Grid>
+
+
+
+                    <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" HorizontalAlignment="Center" 
+                       Margin="14,5,4,5" Text="备注 :" TextAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.Row="5" />
+                    <TextBox Height="33" IsReadOnly="{Binding Path=IsBaseInfoReadOnly}" Margin="9,5,8,5" MaxLength="200" 
+                     Text="{Binding EquipmentRequestEntity.Node1Comment}"  VerticalAlignment="Center"  Grid.Column="2" Grid.Row="5" />
+
+                    <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Grid.Row="5" 
+                        HorizontalAlignment="Center" Margin="14,16,6,11" Text="分管领导 :" 
+                       TextAlignment="Right" VerticalAlignment="Center"  Grid.Column="3" />
+                    <ComboBox Grid.Row="5" Height="33" HorizontalAlignment="Left" IsEnabled="{Binding Path=IsBaseInfoEnabled}" 
+                      ItemsSource="{Binding Path=LeaderList}" Margin="9,5,0,5" Name="cmbLeaderGroup" 
+                      SelectedValue="{Binding EquipmentRequestEntity.SubLeaderId}" SelectedValuePath="Id" 
+                      VerticalAlignment="Center" Width="258" Grid.Column="4" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding RealName}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" 
+                       Grid.Row="6" Height="33" HorizontalAlignment="Center" Margin="5,35,4,3" 
+                       Text="分管领导签名 :" TextAlignment="Right" VerticalAlignment="Top" 
+                       Visibility="{Binding Path=IsSubLeaderInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="111" Grid.Column="3" />
+                    <Button Command="{Binding Path=SubLeaderSignCommand}" Content="签名" Grid.Row="6" Height="33" VerticalAlignment="Top"
+                    HorizontalAlignment="Left" Margin="8,35,0,3" Name="btnSubLeaderSignSelect" Width="42" Grid.Column="5" 
+                    Visibility="{Binding Path=IsSubLeaderSignButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    <Image Grid.Row="6" Height="64" Width="258" HorizontalAlignment="Left" x:Name="imgSubLeaderSignImg" Stretch="Fill" 
+                   VerticalAlignment="Top" Source="{Binding Path=SubLeaderSignImg}" Grid.Column="4" Margin="9,15,0,0" 
+                   Visibility="{Binding Path=IsSubLeaderInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+
+
+                    <TextBlock FontSize="15" FontStretch="Normal" FontStyle="Normal" FontWeight="Normal" Grid.Row="6" 
+                       Height="33" HorizontalAlignment="Center" Margin="5,104,4,2" Text="大队长签名 :" TextAlignment="Right" 
+                       VerticalAlignment="Top" Visibility="{Binding Path=IsDdzInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="111" Grid.Column="3" />
+                    <Button Command="{Binding Path=DdzSignCommand}" Content="签名" Grid.Column="5" Grid.Row="6" 
+                    Height="33" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,104,0,2" x:Name="btnDdzSignSelect" 
+                    Visibility="{Binding Path=IsDdzSignButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="42" />
+                    <Image Grid.Column="4" Grid.Row="6" Height="64" HorizontalAlignment="Left" Margin="9,87,0,0" 
+                   Name="imgDdzSignImg" Source="{Binding Path=DdzSignImg}" Stretch="Fill" VerticalAlignment="Top" 
+                   Visibility="{Binding Path=IsDdzInfoVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="258" />
+
+                </Grid>
+
+                <Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="60"  Margin="0 10 0 0" VerticalAlignment="Top">
+                        <Button x:Name="btnSubmit"
+                        Grid.Row="7" VerticalAlignment="Top"
+                        Grid.Column="2" Margin="8 0 8 0"
+                        Command="{Binding Path=SubmitCommand}"
+                        Height="50"
+                        Visibility="{Binding Path=IsSubmitButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="100">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source ="/Resources/Images/icon_button_save.png" 
+                           Width="32" Height="32" />
+                                    <TextBlock Text="提 交" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                        <Button x:Name="btnPrint" Click="btnPrint_Click" VerticalAlignment="Top" Height="50" Margin="8,0,8,0" Width="100" Grid.Column="2" 
+                                Visibility="{Binding Path=IsPrintButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}" Grid.Row="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="32" Source="pack://application:,,,/Resources/Images/icon_button_print.png" Width="32" />
+                                <TextBlock FontSize="15" Foreground="DarkSlateBlue" HorizontalAlignment="Center" Text="打 印" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="btnCancel"
+                            Grid.Row="7" VerticalAlignment="Top"
+                            Grid.Column="2" Margin="8,0,8,0"
+                            Command="{Binding Path=CancelCommand}"
+                            Height="50" Width="100" Grid.ColumnSpan="2">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source ="/Resources/Images/icon_button_back.png" 
+                           Width="32" Height="32" />
+                                    <TextBlock Text="取 消" Foreground="DarkSlateBlue" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+
+                        <Button x:Name="btnReject" Command="{Binding Path=RejectCommand}" Height="50" 
+                    Margin="8,0,8,0" Grid.Column="3" Grid.Row="7" VerticalAlignment="Top"
+                    Visibility="{Binding Path=IsRejectButtonVisible, Converter={StaticResource BoolToVisibilityConverter}}" Width="100" Grid.ColumnSpan="2">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Height="32" Source="/Resources/Images/icon_button_cancel.png" Width="32" />
+                                <TextBlock FontSize="15" Foreground="DarkSlateBlue" HorizontalAlignment="Center" Text="退 回" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <TextBlock Text="申请流程：&#10;    用户申请-->分管副大队长审核-->大队长审核-->办公室执行-->指挥中心入账签收" TextAlignment="Left" VerticalAlignment="Top" 
+                       Grid.Column="2" Grid.ColumnSpan="5" Grid.Row="6" Foreground="Gray" FontSize="13" HorizontalAlignment="Center" Margin="8,70,8,0"/>
+                </Grid>
+            </StackPanel>
+
+
+
+
+            <local:LoadingWait x:Name="_loading"  Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7" Grid.RowSpan="14"
+                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

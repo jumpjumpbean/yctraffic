@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{98A1B026-7B2D-4156-990D-42A565E135DD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WafTraffic.Applications</RootNamespace>
+    <AssemblyName>WafTraffic.Applications</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Output\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Excel">
+      <HintPath>..\..\Libraries\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit">
+      <HintPath>..\..\Libraries\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.FtpClient">
+      <HintPath>..\..\Libraries\System.Net.FtpClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WpfApplicationFramework">
+      <HintPath>..\..\Libraries\WpfApplicationFramework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\IntToYesNoConverter.cs" />
+    <Compile Include="Common\YcConstants.cs" />
+    <Compile Include="Common\DateConverter.cs" />
+    <Compile Include="Common\BoolToVisibilityConverter.cs" />
+    <Compile Include="Common\DepartmentConverter.cs" />
+    <Compile Include="Common\UserConverter.cs" />
+    <Compile Include="Controllers\AlarmNotifyController.cs" />
+    <Compile Include="Controllers\Cgs\CgsKeyCompanyLogbookController.cs" />
+    <Compile Include="Controllers\Cgs\CgsKeyDriverLogbookController.cs" />
+    <Compile Include="Controllers\Cgs\CgsKeyVehicleLogbookController.cs" />
+    <Compile Include="Controllers\Cgs\CgsVehicleAdminController.cs" />
+    <Compile Include="Controllers\Cgs\CgsYellowMarkCarController.cs" />
+    <Compile Include="Controllers\EntityController.cs" />
+    <Compile Include="Controllers\Fzk\FzkChangeMeasureController.cs" />
+    <Compile Include="Controllers\Fzk\FzkConsultationController.cs" />
+    <Compile Include="Controllers\Fzk\FzkLawQualityLogbookController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\Fzk\FzkPetitionController.cs" />
+    <Compile Include="Controllers\Fzk\FzkPunishController.cs" />
+    <Compile Include="Controllers\Fzk\FzkReleaseCarController.cs" />
+    <Compile Include="Controllers\Gggs\GggsPublishNoticeController.cs" />
+    <Compile Include="Controllers\HotLineController.cs" />
+    <Compile Include="Controllers\IEntityController.cs" />
+    <Compile Include="Controllers\IEnvironmentService.cs" />
+    <Compile Include="Controllers\Kjss\SskRequestController.cs" />
+    <Compile Include="Controllers\MainFrameController.cs" />
+    <Compile Include="Controllers\Map\YuChangMapController.cs" />
+    <Compile Include="Controllers\Qbyq\QbyqInfoAnalysisController.cs" />
+    <Compile Include="Controllers\Sgk\SgkAccidentController.cs" />
+    <Compile Include="Controllers\Sgk\SgkReleaseCarController.cs" />
+    <Compile Include="Controllers\SquadronLogbook\LbBaseController.cs" />
+    <Compile Include="Controllers\SquadronLogbook\LbZdStaffInfoController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MaterialDeclareController.cs" />
+    <Compile Include="Controllers\ModuleController.cs" />
+    <Compile Include="Controllers\SquadronLogbook\FrequentMainController.cs" />
+    <Compile Include="Controllers\SquadronLogbook\LogbookMainController.cs" />
+    <Compile Include="Controllers\PersonArchiveController.cs" />
+    <Compile Include="Controllers\HealthArchiveController.cs" />
+    <Compile Include="Controllers\MonthRegisterController.cs" />
+    <Compile Include="Controllers\SquadronLogbook\LbConfigController.cs" />
+    <Compile Include="Controllers\UserAdminController.cs" />
+    <Compile Include="Controllers\WorkBookController.cs" />
+    <Compile Include="Controllers\SquadronLogbook\LbStaticLogbookController.cs" />
+    <Compile Include="Controllers\SquadronLogbook\LbCyPunishController.cs" />
+    <Compile Include="Controllers\SquadronLogbook\LbCyPatrolController.cs" />
+    <Compile Include="Controllers\SquadronLogbook\LbCyDangerDealController.cs" />
+    <Compile Include="Controllers\Zgxc\ZgxcAskForLeaveController.cs" />
+    <Compile Include="Controllers\Zgxc\ZgxcAssistantCheckinController.cs" />
+    <Compile Include="Controllers\Zgxc\ZgxcPersonnelChangeController.cs" />
+    <Compile Include="Controllers\Zgxc\ZgxcPublicityLogbookController.cs" />
+    <Compile Include="Controllers\Zhzx\ZhzxElectronMonitorController.cs" />
+    <Compile Include="Controllers\Zhzx\ZhzxFilterController.cs" />
+    <Compile Include="Controllers\Zhzx\ZhzxFixedAssetsRegisterController.cs" />
+    <Compile Include="Controllers\Zhzx\ZhzxOfficeSupplyStockController.cs" />
+    <Compile Include="Controllers\Zhzx\ZhzxTotalViolationController.cs" />
+    <Compile Include="Controllers\Zhzx\ZhzxTrafficViolationController.cs" />
+    <Compile Include="Controllers\Zhzx\ZhzxRequestController.cs" />
+    <Compile Include="Controllers\Kjss\KjkRequestController.cs" />
+    <Compile Include="Controllers\Zxk\ZxkOrderController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AuthService.cs" />
+    <Compile Include="Services\EntityObservableCollection.cs" />
+    <Compile Include="Services\EntityService.cs" />
+    <Compile Include="Services\IAuthService.cs" />
+    <Compile Include="Services\IEntityService.cs" />
+    <Compile Include="Services\IPresentationService.cs" />
+    <Compile Include="Services\IShellService.cs" />
+    <Compile Include="Services\ShellService.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ExcelReader.cs" />
+    <Compile Include="Utils\FtpExtensions.cs" />
+    <Compile Include="Utils\FtpHelper.cs" />
+    <Compile Include="Utils\ImageUtil.cs" />
+    <Compile Include="Utils\VersionUpdateUtil.cs" />
+    <Compile Include="ViewModels\AlarmNotifyViewModel.cs" />
+    <Compile Include="ViewModels\Cgs\CgsKeyCompanyLogbookQueryViewModel.cs" />
+    <Compile Include="ViewModels\Cgs\CgsKeyCompanyLogbookUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Cgs\CgsKeyDriverLogbookQueryViewModel.cs" />
+    <Compile Include="ViewModels\Cgs\CgsKeyDriverLogbookUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Cgs\CgsKeyVehicleLogbookQueryViewModel.cs" />
+    <Compile Include="ViewModels\Cgs\CgsKeyVehicleLogbookUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Cgs\CgsVehicleAdminQueryViewModel.cs" />
+    <Compile Include="ViewModels\Cgs\CgsVehicleAdminUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Cgs\CgsYellowMarkCarQueryViewModel.cs" />
+    <Compile Include="ViewModels\Cgs\CgsYellowMarkCarUpdateViewModel.cs" />
+    <Compile Include="ViewModels\FrequentUsedLinkConfigViewModel.cs" />
+    <Compile Include="ViewModels\Fzk\FzkChangeMeasureQueryViewModel.cs" />
+    <Compile Include="ViewModels\Fzk\FzkChangeMeasureUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Fzk\FzkConsultationQueryViewModel.cs" />
+    <Compile Include="ViewModels\Fzk\FzkConsultationUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Fzk\FzkLawQualityLogbookQueryViewModel.cs" />
+    <Compile Include="ViewModels\Fzk\FzkLawQualityLogbookUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Fzk\FzkPetitionQueryViewModel.cs" />
+    <Compile Include="ViewModels\Fzk\FzkPetitionUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Fzk\FzkReleaseCarPrintViewModel.cs" />
+    <Compile Include="ViewModels\Fzk\FzkReleaseCarQueryViewModel.cs" />
+    <Compile Include="ViewModels\Fzk\FzkReleaseCarUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Gggs\GggsPublishNoticeDetailViewModel.cs" />
+    <Compile Include="ViewModels\Gggs\GggsPublishNoticeListViewModel.cs" />
+    <Compile Include="ViewModels\Fzk\FzkPunishQueryViewModel.cs" />
+    <Compile Include="ViewModels\Fzk\FzkPunishUpdateViewModel.cs" />
+    <Compile Include="ViewModels\HealthArchiveListViewModel.cs" />
+    <Compile Include="ViewModels\HotLineCheckViewModel.cs" />
+    <Compile Include="ViewModels\HotLineDealViewModel.cs" />
+    <Compile Include="ViewModels\HotLineShowViewModel.cs" />
+    <Compile Include="ViewModels\HotLineViewModel.cs" />
+    <Compile Include="ViewModels\HotLineListViewModel.cs" />
+    <Compile Include="ViewModels\Kjss\SskRequestQueryViewModel.cs" />
+    <Compile Include="ViewModels\Kjss\SskRequestUpdateViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MainFrameViewModel.cs" />
+    <Compile Include="ViewModels\Map\YuChangMapViewModel.cs" />
+    <Compile Include="ViewModels\Map\YuChengMapViewModel.cs" />
+    <Compile Include="ViewModels\MonthRegisterApproveViewModel.cs" />
+    <Compile Include="ViewModels\MonthRegisterListViewModel.cs" />
+    <Compile Include="ViewModels\MaterialDeclareBuildViewModel.cs" />
+    <Compile Include="ViewModels\MaterialDeclareViewModel.cs" />
+    <Compile Include="ViewModels\PersonArchiveListViewModel.cs" />
+    <Compile Include="ViewModels\Qbyq\QbyqInfoAnalysisQueryViewModel.cs" />
+    <Compile Include="ViewModels\Qbyq\QbyqInfoAnalysisUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Sgk\SgkAccidentQueryViewModel.cs" />
+    <Compile Include="ViewModels\Sgk\SgkAccidentUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Sgk\SgkReleaseCarPrintViewModel.cs" />
+    <Compile Include="ViewModels\Sgk\SgkReleaseCarQueryViewModel.cs" />
+    <Compile Include="ViewModels\Sgk\SgkReleaseCarUpdateViewModel.cs" />
+    <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbBaseQueryViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbBaseUpdateViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbConfigQueryViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbConfigUpdateViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbCyDangerDealUpdateAfterViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbCyPunishGatherViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbZdStaffInfoUpdateViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\FrequentMainViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbStaticLogbookDetailsViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LogbookMainViewModel.cs" />
+    <Compile Include="ViewModels\PersonArchiveViewModel.cs" />
+    <Compile Include="ViewModels\HealthArchiveViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbZdStaffInfoQueryViewModel.cs" />
+    <Compile Include="ViewModels\MonthRegisterViewModel.cs" />
+    <Compile Include="ViewModels\MonthRegisterGatherViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbStaticLogbookDocViewModel.cs" />
+    <Compile Include="ViewModels\UserAdminViewModel.cs" />
+    <Compile Include="ViewModels\UserEditViewModel.cs" />
+    <Compile Include="ViewModels\WorkBookViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbStaticLogbookUpdateViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbStaticLogbookQueryViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbCyPunishUpdateViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbCyPunishQueryViewModel.cs" />
+    <Compile Include="ViewModels\MaterialDeclareGatherViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbCyPatrolUpdateViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbCyPatrolQueryViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbCyDangerDealUpdateBeforeViewModel.cs" />
+    <Compile Include="ViewModels\SquadronLogbook\LbCyDangerDealQueryViewModel.cs" />
+    <Compile Include="ViewModels\Zgxc\ZgxcAskForLeaveQueryViewModel.cs" />
+    <Compile Include="ViewModels\Zgxc\ZgxcAskForLeaveUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Zgxc\ZgxcAssistantCheckinQueryViewModel.cs" />
+    <Compile Include="ViewModels\Zgxc\ZgxcAssistantCheckinUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Zgxc\ZgxcPersonnelChangeQueryViewModel.cs" />
+    <Compile Include="ViewModels\Zgxc\ZgxcPersonnelChangeUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Zgxc\ZgxcPublicityLogbookQueryViewModel.cs" />
+    <Compile Include="ViewModels\Zgxc\ZgxcPublicityLogbookUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxElectronMonitorDetailViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxElectronMonitorListViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxFakePlateNumberViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxFilterQueryViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxFilterUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxFixedAssetsRegisterDetailViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxFixedAssetsRegisterListViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxOfficeSupplyStockDetailViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxOfficeSupplyStockListViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxTotalViolationDetailViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxTotalViolationListViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxTrafficViolationDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxTrafficViolationGatherViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxTrafficViolationViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxRequestUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Zhzx\ZhzxRequestQueryViewModel.cs" />
+    <Compile Include="ViewModels\Kjss\KjkRequestQueryViewModel.cs" />
+    <Compile Include="ViewModels\Kjss\KjkRequestUpdateViewModel.cs" />
+    <Compile Include="ViewModels\Zxk\ZxkOrderQueryViewModel.cs" />
+    <Compile Include="ViewModels\Zxk\ZxkOrderUpdateViewModel.cs" />
+    <Compile Include="Views\Cgs\ICgsKeyCompanyLogbookQueryView.cs" />
+    <Compile Include="Views\Cgs\ICgsKeyCompanyLogbookUpdateView.cs" />
+    <Compile Include="Views\Cgs\ICgsKeyDriverLogbookQueryView.cs" />
+    <Compile Include="Views\Cgs\ICgsKeyDriverLogbookUpdateView.cs" />
+    <Compile Include="Views\Cgs\ICgsKeyVehicleLogbookQueryView.cs" />
+    <Compile Include="Views\Cgs\ICgsKeyVehicleLogbookUpdateView.cs" />
+    <Compile Include="Views\Cgs\ICgsVehicleAdminQueryView.cs" />
+    <Compile Include="Views\Cgs\ICgsVehicleAdminUpdateView.cs" />
+    <Compile Include="Views\Cgs\ICgsYellowMarkCarQueryView.cs" />
+    <Compile Include="Views\Cgs\ICgsYellowMarkCarUpdateView.cs" />
+    <Compile Include="Views\Fzk\IFzkChangeMeasureQueryView.cs" />
+    <Compile Include="Views\Fzk\IFzkChangeMeasureUpdateView.cs" />
+    <Compile Include="Views\Fzk\IFzkConsultationQueryView.cs" />
+    <Compile Include="Views\Fzk\IFzkConsultationUpdateView.cs" />
+    <Compile Include="Views\Fzk\IFzkLawQualityLogbookQueryView.cs" />
+    <Compile Include="Views\Fzk\IFzkLawQualityLogbookUpdateView.cs" />
+    <Compile Include="Views\Fzk\IFzkPetitionQueryView.cs" />
+    <Compile Include="Views\Fzk\IFzkPetitionUpdateView.cs" />
+    <Compile Include="Views\Fzk\IFzkReleaseCarPrintView.cs" />
+    <Compile Include="Views\Fzk\IFzkReleaseCarQueryView.cs" />
+    <Compile Include="Views\Fzk\IFzkReleaseCarUpdateView.cs" />
+    <Compile Include="Views\Gggs\IGggsPublishNoticeDetailView.cs" />
+    <Compile Include="Views\Gggs\IGggsPublishNoticeListView.cs" />
+    <Compile Include="Views\Fzk\IFzkPunishQueryView.cs" />
+    <Compile Include="Views\Fzk\IFzkPunishUpdateView.cs" />
+    <Compile Include="Views\IAlarmNotifyView.cs" />
+    <Compile Include="Views\IFrequentUsedLindConfigView.cs" />
+    <Compile Include="Views\IHealthArchiveListView.cs" />
+    <Compile Include="Views\IHotLineCheckView.cs" />
+    <Compile Include="Views\IHotLineDealView.cs" />
+    <Compile Include="Views\IHotLineShowView.cs" />
+    <Compile Include="Views\IHotLineView.cs" />
+    <Compile Include="Views\IHotLineListView.cs" />
+    <Compile Include="Views\ILoginView.cs" />
+    <Compile Include="Views\IMainFrameView.cs" />
+    <Compile Include="Views\IMonthRegisterApproveView.cs" />
+    <Compile Include="Views\IMonthRegisterListView.cs" />
+    <Compile Include="Views\IMaterialDeclareBuildView.cs" />
+    <Compile Include="Views\IMaterialDeclareView.cs" />
+    <Compile Include="Views\IPersonArchiveListView.cs" />
+    <Compile Include="Views\IShellView.cs" />
+    <Compile Include="Views\IUserListView.cs" />
+    <Compile Include="Views\IUserView.cs" />
+    <Compile Include="Views\Kjss\ISskRequestQueryView.cs" />
+    <Compile Include="Views\Kjss\ISskRequestUpdateView.cs" />
+    <Compile Include="Views\Map\IYuChengMapView.cs" />
+    <Compile Include="Views\Qbyq\IQbyqInfoAnalysisQueryView.cs" />
+    <Compile Include="Views\Qbyq\IQbyqInfoAnalysisUpdateView.cs" />
+    <Compile Include="Views\Sgk\ISgkAccidentQueryView.cs" />
+    <Compile Include="Views\Sgk\ISgkAccidentUpdateView.cs" />
+    <Compile Include="Views\Sgk\ISgkReleaseCarPrintView.cs" />
+    <Compile Include="Views\Sgk\ISgkReleaseCarQueryView.cs" />
+    <Compile Include="Views\Sgk\ISgkReleaseCarUpdateView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbConfigQueryView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbConfigUpdateView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbCyDangerDealUpdateAfterView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbCyPunishGatherView.cs" />
+    <Compile Include="Views\Zgxc\IZgxcAskForLeaveQueryView.cs" />
+    <Compile Include="Views\Zgxc\IZgxcAskForLeaveUpdateView.cs" />
+    <Compile Include="Views\Zgxc\IZgxcAssistantCheckinQueryView.cs" />
+    <Compile Include="Views\Zgxc\IZgxcAssistantCheckinUpdateView.cs" />
+    <Compile Include="Views\Zgxc\IZgxcPersonnelChangeQueryView.cs" />
+    <Compile Include="Views\Zgxc\IZgxcPersonnelChangeUpdateView.cs" />
+    <Compile Include="Views\Zgxc\IZgxcPublicityLogbookQueryView.cs" />
+    <Compile Include="Views\Zgxc\IZgxcPublicityLogbookUpdateView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxElectronMonitorDetailView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxElectronMonitorListView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxFakePlateNumberView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxFilterQueryView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxFilterUpdateView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxFixedAssetsRegisterDetailView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxFixedAssetsRegisterListView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxOfficeSupplyStockDetailView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxOfficeSupplyStockListView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxTotalViolationDetailView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxTotalViolationListView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxTrafficViolationDetailsView.cs" />
+    <Compile Include="Views\Map\IYuChangMapView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbBaseQueryView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbZdStaffInfoUpdateView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILogbookMainView.cs" />
+    <Compile Include="Views\IPersonArchiveView.cs" />
+    <Compile Include="Views\IHealthArchiveView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbZdStaffInfoQueryView.cs" />
+    <Compile Include="Views\IMonthRegisterView.cs" />
+    <Compile Include="Views\IMonthRegisterGatherView.cs" />
+    <Compile Include="Views\IUserAdminView.cs" />
+    <Compile Include="Views\IUserEditView.cs" />
+    <Compile Include="Views\IWorkBookView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbStaticLogbookUpdateView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbStaticLogbookQueryView.cs" />
+    <Compile Include="Views\SquadronLogbook\IFrequentMainView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbStaticLogbookDetailsView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbCyPunishUpdateView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbCyPunishQueryView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbCyPatrolUpdateView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbCyPatrolQueryView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbCyDangerDealUpdateBeforeView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbCyDangerDealQueryView.cs" />
+    <Compile Include="Views\IMaterialDeclareGatherView.cs" />
+    <Compile Include="Views\SquadronLogbook\ILbStaticLogbookDocView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxTrafficViolationGatherView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxTrafficViolationView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxRequestQueryView.cs" />
+    <Compile Include="Views\Zhzx\IZhzxRequestUpdateView.cs" />
+    <Compile Include="Views\Kjss\IKjkRequestQueryView.cs" />
+    <Compile Include="Views\Kjss\IKjkRequestUpdateView.cs" />
+    <Compile Include="Views\Zxk\IZxkOrderQueryView.cs" />
+    <Compile Include="Views\Zxk\IZxkOrderUpdateView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet.Business\DotNet.Business.csproj">
+      <Project>{D99B80B7-4433-4EF8-ABAE-9C3EBC6B098C}</Project>
+      <Name>DotNet.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotNet.Utilities\DotNet.Utilities.csproj">
+      <Project>{2FB4C4A9-F14C-4CDD-9D0E-7C4E7CEBEBDD}</Project>
+      <Name>DotNet.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WafTraffic.Domain\WafTraffic.Domain.csproj">
+      <Project>{18A33DDE-67A8-447D-BEFA-5B9EEB3C863F}</Project>
+      <Name>WafTraffic.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
